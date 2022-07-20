@@ -1,5 +1,5 @@
 #!/bin/bash
-url="http://thesecatsdonotexist.com"
+url="https://pikespeakmakerspace.github.io/welcome-display/"
 
 init() {
     cd /home/pi/Desktop/welcome-display
