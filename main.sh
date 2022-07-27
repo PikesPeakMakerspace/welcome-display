@@ -8,7 +8,8 @@ init() {
 }
 
 main() {
-    chromium-browser --kiosk --start-fullscreen "$url"
+    # chromium-browser --kiosk --start-fullscreen "$url"
+    chromium-browser "$url"
 }
 
 init
