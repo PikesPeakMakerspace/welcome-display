@@ -32,7 +32,8 @@ html, body {
 .logo-container {
   padding: 10%;
   width: 100%;
-  background: #000;
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 27%, rgba(0,0,0,0) 100%);
   display: flex;
   justify-content: center;
   border-top: #FF6700 solid 1px;
