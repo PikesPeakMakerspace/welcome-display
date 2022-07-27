@@ -52,7 +52,7 @@
         continue;
       }
       with(this.context) {
-        fillStyle = "#FF9900";
+        fillStyle = "#FF6700";
         beginPath();
         arc(light.x, light.y, 5, 0, 2 * Math.PI, false);
         shadowColor = '#96c';
@@ -390,7 +390,7 @@
     var recTop = 0;
     var recLeft = 0;
 
-    var delaneyNum = 80;
+    var delaneyNum = 40;
     var myDelaunayDataSet = initTriangle(context, recWid, recHig, recTop, recLeft);
 
     var tempPt;

@@ -26,6 +26,7 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  background: #210d00;
 }
 
 .logo-container {
