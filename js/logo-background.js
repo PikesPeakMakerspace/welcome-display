@@ -375,6 +375,7 @@
   })();
 
   (function() {
+    let throttle = 0;
     var canvas = document.getElementById("logoBackground");
     var canvasWid = window.innerWidth;
     var canvasHig = window.innerHeight;
@@ -425,9 +426,13 @@
     loop();
 
     function loop() {
-      context.clearRect(0, 0, canvasWid, canvasHig);
-      // myDelaunayDataSet.drawTriangle();
-      myDelaunayDataSet.drawLight();
+      throttle++;
+      if (throttle >= 5) {
+        throttle = 0;
+        context.clearRect(0, 0, canvasWid, canvasHig);
+        // myDelaunayDataSet.drawTriangle();
+        myDelaunayDataSet.drawLight();
+      }
       requestAnimFrame(loop);
     }
 
