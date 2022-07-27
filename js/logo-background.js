@@ -30,7 +30,7 @@
 
   var TriSettings = [];
   var lights = [];
-  var max_lights = 50;
+  var max_lights = 20;
 
   DelaunayDataSet.prototype.drawLight = function() {
     while (lights.length < max_lights) {

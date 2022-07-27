@@ -33,14 +33,12 @@ html, body {
   padding: 10%;
   width: 100%;
   background: rgb(0,0,0);
-  background: -moz-radial-gradient(circle, rgba(0,0,0,1) 27%, rgba(0,0,0,0) 100%);
-  background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 27%, rgba(0,0,0,0) 100%);
-  background: radial-gradient(circle, rgba(0,0,0,1) 27%, rgba(0,0,0,0) 100%);
+  background: -moz-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
   display: flex;
   justify-content: center;
-  border-top: #FF6700 solid 1px;
-  border-bottom: #FF6700 solid 1px;
 }
 
 .logo {
