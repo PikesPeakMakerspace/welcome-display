@@ -390,7 +390,7 @@
     var recTop = 0;
     var recLeft = 0;
 
-    var delaneyNum = 30;
+    var delaneyNum = 20;
     var myDelaunayDataSet = initTriangle(context, recWid, recHig, recTop, recLeft);
 
     var tempPt;
