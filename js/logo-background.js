@@ -426,7 +426,7 @@
 
     function loop() {
       context.clearRect(0, 0, canvasWid, canvasHig);
-      myDelaunayDataSet.drawTriangle();
+      // myDelaunayDataSet.drawTriangle();
       myDelaunayDataSet.drawLight();
       requestAnimFrame(loop);
     }
