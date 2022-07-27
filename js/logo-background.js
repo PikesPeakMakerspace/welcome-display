@@ -30,7 +30,7 @@
 
   var TriSettings = [];
   var lights = [];
-  var max_lights = 20;
+  var max_lights = 30;
 
   DelaunayDataSet.prototype.drawLight = function() {
     while (lights.length < max_lights) {
@@ -427,7 +427,7 @@
 
     function loop() {
       throttle++;
-      if (throttle >= 5) {
+      if (throttle >= 6) {
         throttle = 0;
         context.clearRect(0, 0, canvasWid, canvasHig);
         // myDelaunayDataSet.drawTriangle();
