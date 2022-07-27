@@ -4,7 +4,7 @@
 
 html, body {
   margin: 0;
-  background: #371600;
+  background: #000;
   color: #FFF;
   margin: 0;
   padding: 0;
@@ -26,6 +26,7 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: none;
 }
 
 .logo-container {
@@ -34,6 +35,8 @@ html, body {
   background: #000;
   display: flex;
   justify-content: center;
+  border-top: #FF6700 solid 1px;
+  border-bottom: #FF6700 solid 1px;
 }
 
 .logo {
