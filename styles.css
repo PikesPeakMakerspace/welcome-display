@@ -23,15 +23,21 @@ html, body {
 .welcome {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: none;
 }
 
-.logo-container {
-  padding: 30% 10%;
+.logo-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
   width: 100%;
+  height: 100%;
+}
+
+
+.logo-container {
+  width: 100%;
+  height: 100%;
   background: rgb(0,0,0);
   background: -moz-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
   background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
@@ -39,17 +45,12 @@ html, body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .logo {
   height: 400px;
-}
-
-.logoBackground {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
 }
