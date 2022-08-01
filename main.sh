@@ -9,8 +9,8 @@ init() {
 
 main() {
     # chromium-browser --kiosk --start-fullscreen "$url"
-    chromium-browser --kiosk "$url"
-}
+    #chromium-browser --kiosk "$url"
+    chromium-browser --incognito --kiosk file:///home/pi/Desktop/welcome-display/index.html
 
 init
 main
