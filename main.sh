@@ -1,5 +1,5 @@
 #!/bin/bash
-url="https://pikespeakmakerspace.github.io/welcome-display/"
+url="file:///home/pi/Desktop/welcome-display/index.html"
 
 init() {
     cd /home/pi/Desktop/welcome-display
@@ -10,7 +10,6 @@ init() {
 main() {
     # chromium-browser --kiosk --start-fullscreen "$url"
     #chromium-browser --kiosk "$url"
-    chromium-browser --incognito --kiosk file:///home/pi/Desktop/welcome-display/index.html
-
+    chromium-browser --incognito --kiosk "$url"
 init
 main
