@@ -7,3 +7,13 @@ Designed for a vertical screen mounted in a "mall map" frame, this display welco
 No one knows if the developer(s) will get hit by a bus. For that reason, this app is intended as a no-frills, easy-ish to edit, static web app served from github. In the event this app blows up (gets heavily used, hopefully no sparks flying), do feel free to refactor and add TypeScript, React and other nifty tools. :D
 
 More updates soon™️.
+
+
+### Additional Install Notes
+
+Hide cursor after not moving (can't remove from browser alone per (this)[https://stackoverflow.com/a/46868282])
+```
+sudo apt-get install unclutter
+nano ~/.config/lxsession/LXDE/autostart
+@unclutter -idle 0.1
+```
