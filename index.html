@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <title>PPM Welcome Display</title>
-    <link rel="stylesheet" href="./styles.css?nocache=1">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/gameController.css">
   </head>
   <body>
+    <!--
     <div class="scenes">
       <div class="welcome">
         <canvas id="logo-background"></canvas>
@@ -16,6 +18,15 @@
     <script>
       window.animateBackground = true;
     </script>
-    <script src="./js/logo-background.js?nocache=1"></script>
+    -->
+    <!--<script src="./js/logo-background.js"></script>-->
+    <div id="debugMessages" class="hidden">NONE</div>
+    <script type="module">
+      import { App, KioskMode } from './js/App.js';
+
+      (() => {
+        const app = new App(KioskMode.TRAVEL, true).init();
+      })();
+    </script>
   </body>
 </html>

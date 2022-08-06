@@ -10,6 +10,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .scenes {
@@ -84,4 +85,19 @@ html, body {
    -moz-animation: flickerAnimation 30s infinite;
    -o-animation: flickerAnimation 30s infinite;
     animation: flickerAnimation 30s infinite;
+}
+
+#debugMessages {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 0 20px 20px 0;
+  color: #FFF;
+  font-size: 24px;
+}
+
+.hidden {
+  display: none;
 }

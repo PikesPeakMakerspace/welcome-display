@@ -8,12 +8,25 @@ No one knows if the developer(s) will get hit by a bus. For that reason, this ap
 
 More updates soon™️.
 
+## Install Raspberry Pi Desktop
 
-### Additional Install Notes
+TODO
 
-Hide cursor after not moving (can't remove from browser alone per (this)[https://stackoverflow.com/a/46868282])
+## Additional Install Notes
+
+### Hide Cursor
+
+Quickly hide cursor after not moving (can't remove from browser alone per (this)[https://stackoverflow.com/a/46868282])
+
 ```
 sudo apt-get install unclutter
+mkdir -p ~/.config/lxsession/LXDE/
+touch ~/.config/lxsession/LXDE/autostart
 nano ~/.config/lxsession/LXDE/autostart
+# Add this line and save:
 @unclutter -idle 0.1
 ```
+
+## Install Game Controller Support
+
+TODO
