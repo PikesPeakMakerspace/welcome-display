@@ -33,11 +33,9 @@ export class GameController {
    * @param {function} onAxesChange - Callback for when thumbstick states change
    */
   constructor(
-    onButtonChange = (buttonIndexArray) => {},
-    onAxesChange = (axesArray) => {},
+    onControllerChange = (buttonsAndAxes) => { },
   ) {
-    this.onButtonChange = onButtonChange;
-    this.onAxesChange = onAxesChange;
+    this.onControllerChange = onControllerChange;
 
     this.controllers = [];
     this.oldButtons = [];
@@ -45,6 +43,9 @@ export class GameController {
     this.scanGamepadsTimer = '';
     this.connectListener = {};
     this.disconnectListener = {};
+    // TEMP: Current game controller implementation seems a bit finicky. Block first
+    // change event on init for now.
+    this.firstChange = false;
   }
 
   init() {    
@@ -91,23 +92,34 @@ export class GameController {
     }
 
     for (const j in this.controllers) {
+      let change = false;
       const controller = this.controllers[j];
       const activeButtons = this.reduceToActiveButtons(controller.buttons);
 
       if (!numberArraysMatch(activeButtons, this.oldButtons)) {
+        change = true;
         this.oldButtons = activeButtons;
-        this.onButtonChange(activeButtons);
       }
 
       // handle significant drifting values from axes
       const roundedAxes = controller.axes.map(axis => Math.round(axis * 10) / 10);
-
       if (!numberArraysMatch([...roundedAxes], [...this.oldAxes])) {
+        // only populate axes on first change detection
+        if (this.oldAxes) {
+          change = true;
+        }
         this.oldAxes = roundedAxes;
-        // TEMP TODO: I'm having troubles with handling multiple events in one pass, may
-        // want to consolidate controller changes to one method callback containing
-        // buttons and axes
-        // this.onAxesChange(roundedAxes);
+      }
+
+      // TEMP
+      if (change && !this.firstChange) {
+        this.firstChange = true;
+        requestAnimationFrame(this.statusLoop.bind(this));
+        return;
+      }
+
+      if (change) {
+        this.onControllerChange({ buttons: activeButtons, axes: roundedAxes });
       }
     }
 
@@ -125,12 +137,10 @@ export class GameController {
   }
 
   handleConnect(e) {
-    console.log('connected');
     this.addGamepad(e.gamepad);
   }
 
   handleDisconnect(e) {
-    console.log('disconnect');
     this.removeGamepad(e.gamepad);
   }
 

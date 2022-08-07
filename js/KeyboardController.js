@@ -29,9 +29,9 @@ export class KeyboardController {
    * @param {function} onButtonChange - Callback for when button states change
    */
   constructor(
-    onButtonChange = (buttonIndexArray) => {},
+    onControllerChange = (buttonsAndAxes) => { },
   ) {
-    this.onButtonChange = onButtonChange;
+    this.onControllerChange = onControllerChange;
     this.activeButtons = [];
     this.oldButtons = [];
     this.keyDownListener = {};
@@ -52,7 +52,7 @@ export class KeyboardController {
 
     if (!numberArraysMatch(this.activeButtons, this.oldButtons)) {
       this.oldButtons = this.activeButtons;
-      this.onButtonChange(this.activeButtons);
+      this.onControllerChange({ buttons: this.activeButtons, axes: [] })
     }
   }
 

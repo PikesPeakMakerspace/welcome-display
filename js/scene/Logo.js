@@ -16,8 +16,8 @@ export class Logo extends Scene {
     this.onSceneEnd = onSceneEnd;
 
     this.gameControllers = [
-      new GameController(this.handleButtonChange.bind(this), this.handleAxesChange.bind(this)),
-      new KeyboardController(this.handleButtonChange.bind(this)),
+      new GameController(this.handleControllerChange.bind(this)),
+      new KeyboardController(this.handleControllerChange.bind(this)),
     ];
   }
 
@@ -35,12 +35,7 @@ export class Logo extends Scene {
   /**
    * End logo "screen saver"
    */
-  handleButtonChange(buttons) {
-    this.cleanup();
-    this.endScene();
-  }
-  
-  handleAxesChange(axes) {
+  handleControllerChange(buttons) {
     this.cleanup();
     this.endScene();
   }

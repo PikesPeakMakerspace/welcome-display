@@ -20,8 +20,8 @@ export class TravelMap extends Scene {
     this.idleTimeoutMilliseconds = idleTimeoutMilliseconds;
 
     this.gameControllers = [
-      new GameController(this.handleButtonChange.bind(this), this.handleAxesChange.bind(this)),
-      new KeyboardController(this.handleButtonChange.bind(this)),
+      new GameController(this.handleControllerChange.bind(this)),
+      new KeyboardController(this.handleControllerChange.bind(this)),
     ];
     this.idleTimeout = {}
   }
@@ -49,16 +49,10 @@ export class TravelMap extends Scene {
     this.idleTimeout = setTimeout(this.cleanupAndEnd.bind(this), this.idleTimeoutMilliseconds);
   }
 
-  handleButtonChange(buttons) {
+  handleControllerChange(buttons) {
     // TODO
     this.resetIdleTimeout();
     console.log(buttons);
-  }
-  
-  handleAxesChange(axes) {
-    // TODO
-    this.resetIdleTimeout();
-    console.log(axes);
   }
 
   init() {
