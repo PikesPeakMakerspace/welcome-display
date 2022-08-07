@@ -1,5 +1,8 @@
 // Thank you: Aaron Buchanan
 // https://codepen.io/labdev/pen/NWzQKg
+
+const LOGO_BACKGROUND = document.getElementById("logoBackground");
+
 (() => {
   var DelaunayDataSet = function(vertex, context) {
       this.vertex = vertex;
@@ -47,7 +50,7 @@
   (function() {
     let throttle = 0;
 
-    var canvas = document.getElementById("logo-background");
+    var canvas = LOGO_BACKGROUND;
     var context = canvas.getContext("2d");
 
     var canvasWid = window.innerWidth;
@@ -60,6 +63,7 @@
 
     function loop() {
       if (!window.animateBackground) {
+        requestAnimFrame(loop);
         return;
       }
 

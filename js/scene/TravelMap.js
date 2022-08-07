@@ -2,6 +2,8 @@ import { Scene } from './Scene.js';
 import { GameController } from '../GameController.js';
 import { KeyboardController } from '../KeyboardController.js';
 
+const TRAVEL_MAP_DIV = document.getElementById('travelScene');
+
 /**
  * Represents a the "travel" map of PPM, a slightly simplified map targeted towards
  * newcomers in a travel booth setting. Example: Someone who has never heard of PPM
@@ -29,6 +31,8 @@ export class TravelMap extends Scene {
       this.gameControllers[index].cleanup();
       this.gameControllers[index] = null;
     }
+
+    TRAVEL_MAP_DIV.classList.add('hidden');
   }
 
   cleanupAndEnd() {
@@ -63,5 +67,6 @@ export class TravelMap extends Scene {
     }
 
     this.resetIdleTimeout();
+    TRAVEL_MAP_DIV.classList.remove('hidden');
   }
 }

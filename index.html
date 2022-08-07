@@ -5,21 +5,20 @@
     <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <!--
     <div class="scenes">
-      <div class="welcome">
-        <canvas id="logo-background"></canvas>
-        <div class="logo-container">
-          <img src="./img/ppm-logo.svg" class="logo animate-flicker" alt="Pikes Peak Makerspace" />
+      
+      <div id="logoScene" class="hidden">
+        <canvas id="logoBackground"></canvas>
+        <div class="logoContainer">
+          <img src="./img/ppm-logo.svg" class="logo logoFadeInOut" alt="Pikes Peak Makerspace" />
         </div>
       </div>
+
+      <div id="travelScene" class="hidden">
+        It's the map! It's the map! It's the map!
+      </div>
     </div>
-    <script>
-      window.animateBackground = true;
-    </script>
-    -->
-    <!--<script src="./js/logo-background.js"></script>-->
-    <!--<div id="debugMessages" class="hidden">NONE</div>-->
+    <script src="./js/logoBackground.js"></script>
     <script type="module">
       import { App, KioskMode, KioskScene } from './js/App.js';
 

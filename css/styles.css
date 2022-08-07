@@ -1,3 +1,6 @@
+@import "logoScene.css";
+@import "travelScene.css";
+
 * {
   box-sizing: content-box;
 }
@@ -20,85 +23,6 @@ html, body {
   left: 0;
   top: 0;
 }
-
-.welcome {
-  width: 100%;
-  height: 100%;
-}
-
-.logo-background {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-
-
-.logo-container {
-  width: 100%;
-  height: 100%;
-  background: rgb(0,0,0);
-  background: -moz-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
-  background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
-  background: radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.logo {
-  height: 400px;
-}
-
-@keyframes flickerAnimation {
-  0%   { opacity:0; }
-  15%  { opacity:1; }
-  85%  { opacity:1; }
-  100% { opacity:0; }
-}
-@-o-keyframes flickerAnimation{
-  0%   { opacity:0; }
-  15%  { opacity:1; }
-  85%  { opacity:1; }
-  100% { opacity:0; }
-}
-@-moz-keyframes flickerAnimation{
-  0%   { opacity:0; }
-  15%  { opacity:1; }
-  85%  { opacity:1; }
-  100% { opacity:0; }
-}
-@-webkit-keyframes flickerAnimation{
-  0%   { opacity:0; }
-  15%  { opacity:1; }
-  85%  { opacity:1; }
-  100% { opacity:0; }
-}
-.animate-flicker {
-   -webkit-animation: flickerAnimation 30s infinite;
-   -moz-animation: flickerAnimation 30s infinite;
-   -o-animation: flickerAnimation 30s infinite;
-    animation: flickerAnimation 30s infinite;
-}
-
-/*
-#debugMessages {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  text-align: right;
-  box-sizing: border-box;
-  padding: 0 20px 20px 0;
-  color: #FFF;
-  font-size: 24px;
-}
-*/
 
 .hidden {
   display: none;

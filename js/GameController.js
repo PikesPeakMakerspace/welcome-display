@@ -42,17 +42,24 @@ export class GameController {
     this.controllers = [];
     this.oldButtons = [];
     this.oldAxes = [];
-    this.scanGamepadsTimer;
+    this.scanGamepadsTimer = '';
+    this.connectListener = {};
+    this.disconnectListener = {};
   }
 
   init() {    
     this.addEventListeners();
-    this.scanGamepadsTimer = setInterval(this.scanGamepads.bind(this), 500);
+    this.scanGamepadsTimer = setInterval(this.scanGamepads.bind(this), 50);
+    this.scanGamepads();
+    this.statusLoop();
   }
 
   cleanup() {
     this.removeEventListeners();
     clearInterval(this.scanGamepadsTimer);
+    for (const j in this.controllers) {
+      this.removeGamePad(this.controllers[j]);
+    }
   }
 
   scanGamepads() {
@@ -78,8 +85,6 @@ export class GameController {
   }
 
   statusLoop() {
-    let message = '';
-
     if (!this.controllers) {
       requestAnimationFrame(this.statusLoop.bind(this));
       return;
@@ -94,9 +99,15 @@ export class GameController {
         this.onButtonChange(activeButtons);
       }
 
-      if (!numberArraysMatch(controller.axes, this.oldAxes)) {
-        this.oldAxes = controller.axes;
-        this.onAxesChange(controller.axes);
+      // handle significant drifting values from axes
+      const roundedAxes = controller.axes.map(axis => Math.round(axis * 10) / 10);
+
+      if (!numberArraysMatch([...roundedAxes], [...this.oldAxes])) {
+        this.oldAxes = roundedAxes;
+        // TEMP TODO: I'm having troubles with handling multiple events in one pass, may
+        // want to consolidate controller changes to one method callback containing
+        // buttons and axes
+        // this.onAxesChange(roundedAxes);
       }
     }
 
@@ -104,32 +115,35 @@ export class GameController {
   }
 
   addGamepad(gamepad) {
+    console.log('adding gamepad');
     this.controllers[gamepad.index] = gamepad;
   }
 
   removeGamePad(gamepad) {
+    console.log('removing gamepad');
     delete this.controllers[gamepad.index];
   }
 
   handleConnect(e) {
+    console.log('connected');
     this.addGamepad(e.gamepad);
-    requestAnimationFrame(this.statusLoop.bind(this));
-    this.setDebugMessage(`Gamepad connected! index: ${e.gamepad.index}, id: ${e.gamepad.id}, button count: ${e.gamepad.buttons.length}, axes count: ${e.gamepad.axes.length}`);
   }
 
   handleDisconnect(e) {
+    console.log('disconnect');
     this.removeGamepad(e.gamepad);
-    this.setDebugMessage(`Gamepad disconnected. index: ${e.gamepad.index}, id: ${e.gamepad.id}`);
   }
 
   addEventListeners() {
-    window.addEventListener('gamepadconnected', this.handleConnect);
-    window.addEventListener('gamepaddisconnected', this.handleDisconnect);
+    this.connectListener = this.handleConnect.bind(this);
+    this.disconnectListener = this.handleDisconnect.bind(this);
+    window.addEventListener('gamepadconnected', this.connectListener);
+    window.addEventListener('gamepaddisconnected', this.disconnectListener);
   }
 
   removeEventListeners() {
-    window.removeEventListener('gamepadconnected', this.handleConnect);
-    window.removeEventListener('gamepaddisconnected', this.handleDisconnect);
+    window.removeEventListener('gamepadconnected', this.connectListener);
+    window.removeEventListener('gamepaddisconnected', this.disconnectListener);
   }
 
 }

@@ -1,0 +1,72 @@
+#logoScene {
+  width: 100%;
+  height: 100%;
+}
+
+#logoScene #logoBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#logoScene .logoContainer {
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: -moz-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle, rgba(0,0,0,1) 34%, rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#logoScene .logo {
+  height: 400px;
+}
+
+@keyframes logoFadeInOut {
+  0%   { opacity:0; }
+  10%   { opacity:0; }
+  25%  { opacity:1; }
+  75%  { opacity:1; }
+  90% { opacity:0; }
+  100% { opacity:0; }
+}
+@-o-keyframes logoFadeInOut {
+  0%   { opacity:0; }
+  10%   { opacity:0; }
+  25%  { opacity:1; }
+  75%  { opacity:1; }
+  90% { opacity:0; }
+  100% { opacity:0; }
+}
+@-moz-keyframes logoFadeInOut {
+  0%   { opacity:0; }
+  10%   { opacity:0; }
+  25%  { opacity:1; }
+  75%  { opacity:1; }
+  90% { opacity:0; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes logoFadeInOut {
+  0%   { opacity:0; }
+  10%   { opacity:0; }
+  25%  { opacity:1; }
+  75%  { opacity:1; }
+  90% { opacity:0; }
+  100% { opacity:0; }
+}
+
+#logoScene .logoFadeInOut {
+   -webkit-animation: logoFadeInOut 30s infinite;
+   -moz-animation: logoFadeInOut 30s infinite;
+   -o-animation: logoFadeInOut 30s infinite;
+    animation: logoFadeInOut 30s infinite;
+}

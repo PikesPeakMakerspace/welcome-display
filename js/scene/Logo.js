@@ -2,6 +2,8 @@ import { Scene } from './Scene.js';
 import { GameController } from '../GameController.js';
 import { KeyboardController } from '../KeyboardController.js';
 
+const LOGO_DIV = document.getElementById('logoScene');
+
 /**
  * Represents a logo "screen saver", waiting for initial user input to move
  * on to the next scene.
@@ -24,6 +26,10 @@ export class Logo extends Scene {
       this.gameControllers[index].cleanup();
       this.gameControllers[index] = null;
     }
+
+    LOGO_DIV.classList.add('hidden');
+
+    window.animateBackground = false;
   }
 
   /**
@@ -43,5 +49,9 @@ export class Logo extends Scene {
     for(const controller of this.gameControllers) {
       controller.init();
     }
+
+    LOGO_DIV.classList.remove('hidden');
+    // TODO: Make a nicer particle effect thing that's not copied from Code Pen:
+    window.animateBackground = true;
   }
 }
