@@ -47,7 +47,7 @@ export class App {
         break;
       case KioskScene.TRAVEL_MAP:
         console.log(`${sceneInt}: loading travel map...`);
-        this.activeScene = new TravelMap(this.handleSceneEnd.bind(this), 10000);
+        this.activeScene = new TravelMap(this.handleSceneEnd.bind(this), 120000);
         break;
       default:
         console.error(`Scene option of ${this.scenes[sceneInt]} is not valid.`);
