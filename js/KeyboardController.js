@@ -34,6 +34,8 @@ export class KeyboardController {
     this.onButtonChange = onButtonChange;
     this.activeButtons = [];
     this.oldButtons = [];
+    this.keyDownListener = {};
+    this.keyUpListener = {};
   }
 
   init() {    
@@ -111,12 +113,14 @@ export class KeyboardController {
   }
 
   addEventListeners() {
-    window.addEventListener('keydown', this.handleKeyDown.bind(this));
-    window.addEventListener('keyup', this.handleKeyUp.bind(this));
+    this.keyDownListener = this.handleKeyDown.bind(this);
+    this.keyUpListener = this.handleKeyUp.bind(this);
+    window.addEventListener('keydown', this.keyDownListener);
+    window.addEventListener('keyup', this.keyUpListener);
   }
 
   removeEventListeners() {
-    window.removeEventListener('keydown', this.handleKeyDown.bind(this));
-    window.removeEventListener('keyup', this.handleKeyUp.bind(this));
+    window.removeEventListener('keydown', this.keyDownListener);
+    window.removeEventListener('keyup', this.keyUpListener);
   }
 }

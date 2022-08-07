@@ -3,7 +3,6 @@
   <head>
     <title>PPM Welcome Display</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/gameController.css">
   </head>
   <body>
     <!--
@@ -20,12 +19,18 @@
     </script>
     -->
     <!--<script src="./js/logo-background.js"></script>-->
-    <div id="debugMessages" class="hidden">NONE</div>
+    <!--<div id="debugMessages" class="hidden">NONE</div>-->
     <script type="module">
-      import { App, KioskMode } from './js/App.js';
+      import { App, KioskMode, KioskScene } from './js/App.js';
 
       (() => {
-        const app = new App(KioskMode.TRAVEL, true).init();
+        const app = new App(
+          [
+            KioskScene.LOGO,
+            KioskScene.TRAVEL_MAP,
+          ],
+        );
+        app.init();
       })();
     </script>
   </body>

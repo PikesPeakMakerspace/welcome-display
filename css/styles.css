@@ -87,6 +87,7 @@ html, body {
     animation: flickerAnimation 30s infinite;
 }
 
+/*
 #debugMessages {
   position: absolute;
   bottom: 0px;
@@ -97,6 +98,7 @@ html, body {
   color: #FFF;
   font-size: 24px;
 }
+*/
 
 .hidden {
   display: none;

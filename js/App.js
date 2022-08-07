@@ -1,7 +1,5 @@
-import { GameController } from './GameController.js';
-import { KeyboardController } from './KeyboardController.js';
-
-const DEBUG_DIV = document.getElementById('debugMessages');
+import { Logo } from './scene/Logo.js';
+import { TravelMap } from './scene/TravelMap.js';
 
 /**
  * The kiosk operates in a mode suited for traveling display
@@ -11,52 +9,56 @@ export const KioskMode = {
   MAKERSPACE: 'makerspace',
 };
 
+export const KioskScene = {
+  LOGO: 'logo',
+  TRAVEL_MAP: 'travelMap',
+}
+
 /** Represents the main app */
 export class App {
   /**
    * Create the App.
    * @param {string} mode - Kiosk mode: see ModeTypes
-   * @param {boolean} debug - Show debug logs
    */
   constructor(
-    mode = KioskMode.TRAVEL,
-    debug = false,
+    scenes = [KioskScene.LOGO],
   ) {
-    this.mode = mode;
-    this.debug = debug;
     this.gameControllers = [];
+    this.scenes = scenes;
+    this.activeScene = {};
+    this.activeSceneInt = 0;
   }
 
-  handleButtonChange(buttons) {
-    // TODO
-    this.debugMessage(JSON.stringify(buttons));
-  }
-
-  handleAxesChange(axes) {
-    // TODO
-    this.debugMessage(JSON.stringify(axes));
-  }
-
-  showDebug() {
-    if (this.debug) {
-      DEBUG_DIV.classList.remove('hidden');
+  handleSceneEnd() {
+    console.log('ending scene...');
+    this.activeScene = null;
+    this.activeSceneInt++;
+    if (this.activeSceneInt >= this.scenes.length) {
+      this.activeSceneInt = 0;
     }
+    this.loadScene(this.activeSceneInt);
   }
 
-  debugMessage(message = 'message undefined') {
-    if (this.debug) {
-      console.log(message);
-      DEBUG_DIV.innerHTML = message;
+  loadScene(sceneInt) {
+    switch(this.scenes[sceneInt]) {
+      case KioskScene.LOGO:
+        console.log(`${sceneInt}: loading logo scene...`);
+        this.activeScene = new Logo(this.handleSceneEnd.bind(this));
+        break;
+      case KioskScene.TRAVEL_MAP:
+        console.log(`${sceneInt}: loading travel map...`);
+        this.activeScene = new TravelMap(this.handleSceneEnd.bind(this), 10000);
+        break;
+      default:
+        console.error(`Scene option of ${this.scenes[sceneInt]} is not valid.`);
+        return;
     }
+    
+    this.activeScene.init();
   }
 
   init() {
-    this.gameControllers = [
-      new GameController(this.handleButtonChange.bind(this), this.handleAxesChange.bind(this)).init(),
-      new KeyboardController(this.handleButtonChange.bind(this)).init(),
-    ];
-
-    this.showDebug();
+    this.loadScene(this.activeSceneInt);
   }
 
 }

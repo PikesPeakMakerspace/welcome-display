@@ -1,0 +1,47 @@
+import { Scene } from './Scene.js';
+import { GameController } from '../GameController.js';
+import { KeyboardController } from '../KeyboardController.js';
+
+/**
+ * Represents a logo "screen saver", waiting for initial user input to move
+ * on to the next scene.
+ */
+export class Logo extends Scene {
+  constructor(
+   onSceneEnd = () => { },
+  ) {
+    super();
+    this.onSceneEnd = onSceneEnd;
+
+    this.gameControllers = [
+      new GameController(this.handleButtonChange.bind(this), this.handleAxesChange.bind(this)),
+      new KeyboardController(this.handleButtonChange.bind(this)),
+    ];
+  }
+
+  cleanup() {
+    for(const index in this.gameControllers) {
+      this.gameControllers[index].cleanup();
+      this.gameControllers[index] = null;
+    }
+  }
+
+  /**
+   * End logo "screen saver"
+   */
+  handleButtonChange(buttons) {
+    this.cleanup();
+    this.endScene();
+  }
+  
+  handleAxesChange(axes) {
+    this.cleanup();
+    this.endScene();
+  }
+
+  init() {
+    for(const controller of this.gameControllers) {
+      controller.init();
+    }
+  }
+}
