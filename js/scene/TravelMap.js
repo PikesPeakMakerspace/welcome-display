@@ -47,11 +47,13 @@ export class TravelMap extends Scene {
 
   handleButtonChange(buttons) {
     // TODO
+    this.resetIdleTimeout();
     console.log(buttons);
   }
   
   handleAxesChange(axes) {
     // TODO
+    this.resetIdleTimeout();
     console.log(axes);
   }
 
