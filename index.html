@@ -10,13 +10,29 @@
       <div id="logoScene" class="hidden">
         <canvas id="logoBackground"></canvas>
         <div class="logoContainer">
-          <img src="./img/ppm-logo.svg" class="logo logoFadeInOut" alt="Pikes Peak Makerspace" />
+          <img src="./img/ppmLogo.svg" class="logo logoFadeInOut" alt="Pikes Peak Makerspace" />
         </div>
       </div>
 
-      <div id="travelScene" class="hidden">
-        It's the map! It's the map! It's the map!
+      <div id="travelMapScene" class="hidden">
+        <div id="travelMap">
+          <!--<object class="map" type="image/svg+xml" data="./img/travelMap.svg"></object>-->
+        </div>
+        <div class="header">
+          <div class="logoContainer">
+            <img src="./img/ppmLogo.svg" class="logo" alt="Pikes Peak Makerspace" />
+          </div>
+          <div class="overview">
+            <div class="title">
+              Wood Shop
+            </div>
+            <div class="equipment">
+              Planer, bandsaw, lathe, table saw, bench grinder, miter saw, jointer, router, shaper, edge belt / spindle sander, floor drill press, jig saw and much more!
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
     <script src="./js/logoBackground.js"></script>
     <script type="module">
@@ -25,8 +41,8 @@
       (() => {
         const app = new App(
           [
-            KioskScene.LOGO,
             KioskScene.TRAVEL_MAP,
+            KioskScene.LOGO,
           ],
         );
         app.init();

@@ -1,0 +1,165 @@
+#travelMapScene {
+  width: 100%;
+  height: 100%;
+  background: #254279 url('../img/mapBackground.gif');
+}
+
+#travelMapScene .logo {
+  width: 160px;
+  height: 130px;
+  padding: 32px 32px 0 32px;
+}
+
+#travelMapScene .header {
+  display: flex;
+}
+
+#travelMapScene .logoContainer {
+  flex: 0 1;
+}
+
+#travelMapScene .overview {
+  flex: 1 0;
+  padding: 32px 0 0 0;
+}
+
+#travelMapScene .overview .title {
+  font-size: 60px;
+  line-height: 56px;
+  color: #9ec2e7;
+  border-bottom: #9ec2e7 solid 2px;
+  padding-top: 18px;
+}
+
+#travelMapScene .overview .equipment {
+  padding: 20px 32px 0 0;
+  font-size: 24px;
+  line-height: 1.4em;
+}
+
+#travelMapScene #travelMap {
+  width: 668px;
+  height: 1058px;
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  display: block;
+}
+
+#travelMapScene #travelMap #walls,
+#travelMapScene #travelMap #areaLabels,
+#travelMapScene #travelMap #exitLabels {
+  pointer-events: none;
+}
+
+
+
+/* cnc room outline */
+#travelMapScene #travelMap #cncRoom:hover path,
+#travelMapScene #travelMap #cncRoom.active path {
+  fill: #FFF;
+}
+/* cnc room fill */
+#travelMapScene #travelMap #cncRoom:hover rect,
+#travelMapScene #travelMap #cncRoom.active rect {
+  fill: #2b78bd;
+}
+
+/* wood shop outline */
+#travelMapScene #travelMap #woodShop:hover path,
+#travelMapScene #travelMap #woodShop.active path {
+  fill: #FFF;
+}
+/* wood shop fill */
+#travelMapScene #travelMap #woodShop:hover polygon,
+#travelMapScene #travelMap #woodShop.active polygon {
+  fill: #42b549;
+}
+
+/* metal shop outline */
+#travelMapScene #travelMap #metalShop:hover path,
+#travelMapScene #travelMap #metalShop.active path {
+  fill: #FFF;
+}
+/* metal shop fill */
+#travelMapScene #travelMap #metalShop:hover polygon,
+#travelMapScene #travelMap #metalShop.active polygon {
+  fill: #b5407e;
+}
+
+/* laser engraver outline */
+#travelMapScene #travelMap #laserEngravers:hover path,
+#travelMapScene #travelMap #laserEngravers.active path {
+  fill: #FFF;
+}
+/* laser engraver fill */
+#travelMapScene #travelMap #laserEngravers:hover rect,
+#travelMapScene #travelMap #laserEngravers.active rect {
+  fill: #bc1e2e;
+}
+
+/* electronics outline */
+#travelMapScene #travelMap #electronics:hover path,
+#travelMapScene #travelMap #electronics.active path {
+  fill: #FFF;
+}
+/* electronics fill */
+#travelMapScene #travelMap #electronics:hover rect,
+#travelMapScene #travelMap #electronics.active rect {
+  fill: #9e4db2;
+}
+
+/* 3d printers outline */
+#travelMapScene #travelMap #printers3d:hover path,
+#travelMapScene #travelMap #printers3d.active path {
+  fill: #FFF;
+}
+/* 3d printers fill */
+#travelMapScene #travelMap #printers3d:hover polygon,
+#travelMapScene #travelMap #printers3d.active polygon {
+  fill: #b2761f;
+}
+
+/* multi use outline */
+#travelMapScene #travelMap #multiUse:hover path,
+#travelMapScene #travelMap #multiUse.active path {
+  fill: #FFF;
+}
+/* multi use fill */
+#travelMapScene #travelMap #multiUse:hover rect,
+#travelMapScene #travelMap #multiUse.active rect {
+  fill: #7f695b;
+}
+
+/* computers printers outline */
+#travelMapScene #travelMap #computersPrinters:hover path,
+#travelMapScene #travelMap #computersPrinters.active path {
+  fill: #FFF;
+}
+/* computers printers fill */
+#travelMapScene #travelMap #computersPrinters:hover rect,
+#travelMapScene #travelMap #computersPrinters.active rect {
+  fill: #93931d;
+}
+
+/* dedicated space 1 outline */
+#travelMapScene #travelMap #dedicatedSpace1:hover path,
+#travelMapScene #travelMap #dedicatedSpace1.active path {
+  fill: #FFF;
+}
+/* dedicated space 1 fill */
+#travelMapScene #travelMap #dedicatedSpace1:hover rect,
+#travelMapScene #travelMap #dedicatedSpace1.active rect {
+  fill: #758a90;
+}
+
+/* dedicated space 2 outline */
+#travelMapScene #travelMap #dedicatedSpace2:hover path,
+#travelMapScene #travelMap #dedicatedSpace2.active path {
+  fill: #FFF;
+}
+/* dedicated space 2 fill */
+#travelMapScene #travelMap #dedicatedSpace2:hover polygon,
+#travelMapScene #travelMap #dedicatedSpace2.active polygon {
+  fill: #758a90;
+}

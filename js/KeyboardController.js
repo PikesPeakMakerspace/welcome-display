@@ -52,7 +52,7 @@ export class KeyboardController {
 
     if (!numberArraysMatch(this.activeButtons, this.oldButtons)) {
       this.oldButtons = this.activeButtons;
-      this.onControllerChange({ buttons: this.activeButtons, axes: [] })
+      this.onControllerChange({ buttons: this.activeButtons, axes: [] });
     }
   }
 
@@ -60,7 +60,7 @@ export class KeyboardController {
     this.activeButtons = this.activeButtons.filter(activeButton => activeButton !== button);
     if (!numberArraysMatch(this.activeButtons, this.oldButtons)) {
       this.oldButtons = this.activeButtons;
-      this.onButtonChange(this.activeButtons);
+      this.onControllerChange({ buttons: this.activeButtons, axes: [] });
     }
   }
 
