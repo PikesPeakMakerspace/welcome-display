@@ -110,7 +110,8 @@ export class TravelMap extends Scene {
       new KeyboardController(this.handleControllerChange.bind(this)),
     ];
     this.idleTimeout = {}
-    this.interactiveMap = {};
+    // TODO: is it dom object?:
+    this.mapSvg = '';
   }
 
   async loadMap() {
@@ -119,7 +120,7 @@ export class TravelMap extends Scene {
     fetch('../img/travelMap.svg')
       .then(r => r.text())
       .then(text => {
-        this.interactiveMap = text;
+        this.mapSvg = text;
         TRAVEL_MAP_DIV.innerHTML = text;
       })
       .catch(console.error.bind(console));

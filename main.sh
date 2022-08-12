@@ -1,14 +1,13 @@
 #!/bin/bash
-url="file:///home/pi/Desktop/welcome-display/index.html"
+url="http://127.0.0.1"
 
 init() {
     cd /home/pi/Desktop/welcome-display
     git pull
-    #TODO start web app `npm run &` or `node index.js &`
+    node server.js &&
 }
 
 main() {
-    # chromium-browser --kiosk --start-fullscreen "$url"
     chromium-browser --kiosk --incognito "$url"
 }
 
