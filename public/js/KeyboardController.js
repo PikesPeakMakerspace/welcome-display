@@ -7,8 +7,8 @@ export const GamepadKeyboard = {
   B: 1,
   UP: 12,
   DOWN: 13,
-  RIGHT: 14,
-  LEFT: 15,
+  RIGHT: 15,
+  LEFT: 14,
 };
 
 export const WatchedKeys = {
