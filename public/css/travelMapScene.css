@@ -2,6 +2,9 @@
   width: 100%;
   height: 100%;
   background: #254279 url('../img/mapBackground.gif');
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
 }
 
 #travelMapScene .logo {
@@ -12,6 +15,7 @@
 
 #travelMapScene .header {
   display: flex;
+  flex:0 0 auto;
 }
 
 #travelMapScene .logoContainer {
@@ -38,12 +42,16 @@
 }
 
 #travelMapScene #travelMap {
-  width: 668px;
-  height: 1058px;
-  position: absolute;
-  bottom: 20px;
-  left: 50px;
-  display: block;
+  flex: 1 1 auto;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+#travelMapScene #travelMap svg {
+  height: 90%;
+  max-width: 90%;
 }
 
 #travelMapScene #travelMap #walls,
