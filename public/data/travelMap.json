@@ -1,0 +1,356 @@
+[
+  {
+    "id": "printers3d",
+    "title": "3D Printing",
+    "equipment": "Filament printers from Ender, Lulzbot, Monoprice and PRUSA. Resin printer from Anycubic. Filament dryers resin curing boxes and some materials available!",
+    "gallery": [
+      {
+        "uri": "img/gallery/printers3D/3D_Printing_Area2.jpg",
+        "caption": "3D Printing Area"
+      },
+      {
+        "uri": "img/gallery/printers3D/MR_T.jpg",
+        "caption": "MR. T Lulzbot 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3D/3D_printer_HAYWIRE.jpg",
+        "caption": "HAYWIRE 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3D/3D_printer_MEDUSA.jpg",
+        "caption": "MEDUSA 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3D/ANYCUBIC_3D_Printer.jpg",
+        "caption": "ANYCUBIC 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3D/Dryer_oven.jpg",
+        "caption": "Dryer Oven"
+      },
+      {
+        "uri": "img/gallery/printers3D/Lion_3D_Printed.jpg",
+        "caption": "3D Printed Lion"
+      },
+      {
+        "uri": "img/gallery/printers3D/Monoprice.jpg",
+        "caption": "Monoprice 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3D/Tesla_Prusa.jpg",
+        "caption": "3D Printed Tesla Bust"
+      },
+      {
+        "uri": "img/gallery/printers3D/Toilet_paper_holder.jpg",
+        "caption": "3D Printed Paper Holder"
+      }
+    ]
+  },
+  {
+    "id": "cncRoom",
+    "title": "CNC Room",
+    "equipment": "Avid CNC 4x8 router table, ShopBot handibots (2). VCarve and Mach 4 software.",
+    "gallery": [
+      {
+        "uri": "img/gallery/cncRoom/CNC_Area.jpg",
+        "caption": "CNC Area"
+      },
+      {
+        "uri": "img/gallery/cncRoom/Handibot.jpg",
+        "caption": "Handibot Engraver"
+      },
+      {
+        "uri": "img/gallery/cncRoom/TOSC_tours_CNC_Area.jpg",
+        "caption": "Tour of CNC Room"
+      },
+      {
+        "uri": "img/gallery/cncRoom/Chair_glue-up.jpg",
+        "caption": "CNC-cut Wooden Chair"
+      }
+    ]
+  },
+  {
+    "id": "computersPrinters",
+    "title": "Computers and Printers",
+    "equipment": "Windows 10 Design Workstations (2) with Adobe Creative Cloud software and much more!",
+    "gallery": [
+      {
+        "uri": "img/gallery/computersPrinters/Design_Workstation_Area.jpg",
+        "caption": "Computer Area"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Canon_G7020.jpg",
+        "caption": "Canon Inkjet Printer"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Hp_600_printer.jpg",
+        "caption": "HP BW Printer"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/HP_Designjet_510.jpg",
+        "caption": "HP Large Format Printer"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Ubuntu_workstation.jpg",
+        "caption": "Ubuntu Workstation"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Vinyl_Cutting_Workstation.jpg",
+        "caption": "Vinyl Cutting Workstation"
+      }
+    ]
+  },
+  {
+    "id": "dedicatedSpace1",
+    "title": "Dedicated Spaces",
+    "equipment": "Work from your own personal and private work area at Pikes Peak Makerspace!",
+    "gallery": [
+      {
+        "uri": "img/gallery/dedicatedSpace1/ppmLogo.svg",
+        "caption": "Our Makerspace Logo"
+      },
+      {
+        "uri": "img/gallery/dedicatedSpace1/ppmLogo.svg",
+        "caption": "Our Makerspace Logo"
+      }
+    ]
+  },
+  {
+    "id": "dedicatedSpace2",
+    "title": "Dedicated Spaces",
+    "equipment": "Work from your own personal and private work area at Pikes Peak Makerspace!",
+    "gallery": [
+      {
+        "uri": "img/gallery/dedicatedSpace2/ppmLogo.svg",
+        "caption": "Our Makerspace Logo"
+      },
+      {
+        "uri": "img/gallery/dedicatedSpace2/ppmLogo.svg",
+        "caption": "Our Makerspace Logo"
+      }
+    ]
+  },
+  {
+    "id": "electronicsArea",
+    "title": "Electronics Area",
+    "equipment": "Work with test equipment from hp and other manufacturers. Soldering workstations (2), solder reflow oven and various hand tools such as multimeters.",
+    "gallery": [
+      {
+        "uri": "img/gallery/electronicsArea/Electronics_Area.jpg",
+        "caption": "Electronics Area"
+      },
+      {
+        "uri": "img/gallery/electronicsArea/HAKKO_soldering_station.jpg",
+        "caption": "Soldering Workstation"
+      },
+      {
+        "uri": "img/gallery/electronicsArea/Multimeter_hp_3478A.jpg",
+        "caption": "HP Multimeter"
+      },
+      {
+        "uri": "img/gallery/electronicsArea/Protek_DC_Power_Supply.jpg",
+        "caption": "DC Power Supply"
+      }
+    ]
+  },
+  {
+    "id": "laserEngravers",
+    "title": "Laser Engravers",
+    "equipment": "Boss 150 Watt CO2 laser and LightBurn software, Epilog Zing 30 Watt Laser Engrave and/or cut various materials at Pikes Peak Makerspace.",
+    "gallery": [
+      {
+        "uri": "img/gallery/laserEngravers/BOSS_LASER_Area.jpg",
+        "caption": "BOSS LASER Area"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/BOSS_LASER.jpg",
+        "caption": "BOSS LASER Engraver"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Inspirational_Signs.jpg",
+        "caption": "Inspirational Signs"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Laser_cut_wooden_clock.jpg",
+        "caption": "Laser Cut Clock"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Minnesota_Nice.jpg",
+        "caption": "Laser Cut Artwork"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Round_PCB_PPM_clock.jpg",
+        "caption": "Laser Cut Clock"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Zing_LASER.jpg",
+        "caption": "Zing LASER"
+      }
+    ]
+  },
+  {
+    "id": "metalShop",
+    "title": "Metal Shop",
+    "equipment": "Welding equipment, 3-in-1 lathe, powder coating system, drill presses, band saws and various hand tools for you to complete your projects!",
+    "gallery": [
+      {
+        "uri": "img/gallery/metalShop/Metal_Shop_Area.jpg",
+        "caption": "Metal Shop Area"
+      },
+      {
+        "uri": "img/gallery/metalShop/Drill_press_ROCKWELL.jpg",
+        "caption": "ROCKWELL Drill Press"
+      },
+      {
+        "uri": "img/gallery/metalShop/Evolution_Metal_Chop_Saw.jpg",
+        "caption": "Evolution Metal Chop Saw"
+      },
+      {
+        "uri": "img/gallery/metalShop/IR_Thermometer.jpg",
+        "caption": "IR Thermometer"
+      },
+      {
+        "uri": "img/gallery/metalShop/Media_blaster.jpg",
+        "caption": "Media Blaster"
+      },
+      {
+        "uri": "img/gallery/metalShop/Metal_band_saw.jpg",
+        "caption": "Metal Band Saw"
+      },
+      {
+        "uri": "img/gallery/metalShop/Tool_cabinet.jpg",
+        "caption": "Grizzly Lathe on Tool Cabinet"
+      },
+      {
+        "uri": "img/gallery/metalShop/Welder_Multimaster_260.jpg",
+        "caption": "Multimaster 260 Welder"
+      }
+    ]
+  },
+  {
+    "id": "multiUse",
+    "title": "Multi-Use Area",
+    "equipment": "Make use of our Kitchen, Library, Photography Area and other shared resources at Pikes Peak Makerspace!",
+    "gallery": [
+      {
+        "uri": "img/gallery/multiUse/Photography_Area.jpg",
+        "caption": "Photography Area"
+      },
+      {
+        "uri": "img/gallery/multiUse/Assembly_Table.jpg",
+        "caption": "Assembly Table"
+      },
+      {
+        "uri": "img/gallery/multiUse/Building_sign_1.jpg",
+        "caption": "Building Sign"
+      },
+      {
+        "uri": "img/gallery/multiUse/Building_sign_4.jpg",
+        "caption": "Building Sign"
+      },
+      {
+        "uri": "img/gallery/multiUse/Building_sign_5.jpg",
+        "caption": "Yet Another Building Sign"
+      },
+      {
+        "uri": "img/gallery/multiUse/PPM_Library.jpg",
+        "caption": "PPM Library"
+      },
+      {
+        "uri": "img/gallery/multiUse/PPM_outdoor_window_sign.jpg",
+        "caption": "Outdoor Vinyl Sign"
+      }
+    ]
+  },
+  {
+    "id": "woodShop",
+    "title": "Wood Shop",
+    "equipment": "Planer, bandsaw, lathe, table saw, bench grinder, miter saw, jointer, router, shaper, edge belt / spindle sander, floor drill press, jig saw and much more!",
+    "gallery": [
+      {
+        "uri": "img/gallery/woodShop/Wood_Shop_Area.jpg",
+        "caption": "Wood Shop Area"
+      },
+      {
+        "uri": "img/gallery/woodShop/Festool_Dust_Extractor.jpg",
+        "caption": "Festool Dust Extractor"
+      },
+      {
+        "uri": "img/gallery/woodShop/Festool_Orbital_Sander.jpg",
+        "caption": "Festool Orbital Sander"
+      },
+      {
+        "uri": "img/gallery/woodShop/Festool_Track_Saw.jpg",
+        "caption": "Festool Track Saw"
+      },
+      {
+        "uri": "img/gallery/woodShop/3520B_POWERMATIC_lathe.jpg",
+        "caption": "POWERMATIC Lathe"
+      },
+      {
+        "uri": "img/gallery/woodShop/POWERMATIC_bandsaw_big.jpg",
+        "caption": "POWERMATIC Bandsaw"
+      },
+      {
+        "uri": "img/gallery/woodShop/POWERMATIC_planer.jpg",
+        "caption": "POWERMATIC PLANER"
+      },
+      {
+        "uri": "img/gallery/woodShop/PM_66.jpg",
+        "caption": "POWERMATIC 66 Table Saw"
+      },
+      {
+        "uri": "img/gallery/woodShop/AIR_NAILER.jpg",
+        "caption": "Air Nailer"
+      },
+      {
+        "uri": "img/gallery/woodShop/BOSCH_jigsaw_1590EVS.jpg",
+        "caption": "BOSCH Jigsaw"
+      },
+      {
+        "uri": "img/gallery/woodShop/DELTA_Router_Table.jpg",
+        "caption": "DELTA Router Table"
+      },
+      {
+        "uri": "img/gallery/woodShop/DeWALT_jigsaw.jpg",
+        "caption": "DEWALT Jigsaw"
+      },
+      {
+        "uri": "img/gallery/woodShop/DeWALT_sawsall.jpg",
+        "caption": "DeWALT Sawsall"
+      },
+      {
+        "uri": "img/gallery/woodShop/JET_Jointer.jpg",
+        "caption": "JET Jointer"
+      },
+      {
+        "uri": "img/gallery/woodShop/Lathe_tools.jpg",
+        "caption": "Lathe Tools"
+      },
+      {
+        "uri": "img/gallery/woodShop/Makita_Circular_Saw.jpg",
+        "caption": "Makita Circular Saw"
+      },
+      {
+        "uri": "img/gallery/woodShop/Miter_saw_with_new_dust_hood.jpg",
+        "caption": "Miter Saw"
+      },
+      {
+        "uri": "img/gallery/woodShop/Sander_Mouse.jpg",
+        "caption": "Mouse Sander"
+      },
+      {
+        "uri": "img/gallery/woodShop/Sander_PORTER-CABLE.jpg",
+        "caption": "PORTER-CABLE Sander"
+      },
+      {
+        "uri": "img/gallery/woodShop/Sander_RYOBI.jpg",
+        "caption": "RYOBI Sander"
+      },
+      {
+        "uri": "img/gallery/woodShop/WORK_SHARP_sharpener.jpg",
+        "caption": "WORK SHARP Sharpener"
+      }
+    ]
+  }
+]
