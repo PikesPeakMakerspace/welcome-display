@@ -1,6 +1,5 @@
-[
-  {
-    "id": "printers3d",
+{
+  "printers3d": {
     "title": "3D Printing",
     "equipment": "Filament printers from Ender, Lulzbot, Monoprice and PRUSA. Resin printer from Anycubic. Filament dryers resin curing boxes and some materials available!",
     "gallery": [
@@ -46,8 +45,7 @@
       }
     ]
   },
-  {
-    "id": "cncRoom",
+  "cncRoom": {
     "title": "CNC Room",
     "equipment": "Avid CNC 4x8 router table, ShopBot handibots (2). VCarve and Mach 4 software.",
     "gallery": [
@@ -69,9 +67,8 @@
       }
     ]
   },
-  {
-    "id": "computersPrinters",
-    "title": "Computers and Printers",
+  "computersPrinters": {
+    "title": "Computers, Print",
     "equipment": "Windows 10 Design Workstations (2) with Adobe Creative Cloud software and much more!",
     "gallery": [
       {
@@ -100,8 +97,7 @@
       }
     ]
   },
-  {
-    "id": "dedicatedSpace1",
+  "dedicatedSpace1": {
     "title": "Dedicated Spaces",
     "equipment": "Work from your own personal and private work area at Pikes Peak Makerspace!",
     "gallery": [
@@ -115,8 +111,7 @@
       }
     ]
   },
-  {
-    "id": "dedicatedSpace2",
+  "dedicatedSpace2": {
     "title": "Dedicated Spaces",
     "equipment": "Work from your own personal and private work area at Pikes Peak Makerspace!",
     "gallery": [
@@ -130,8 +125,7 @@
       }
     ]
   },
-  {
-    "id": "electronicsArea",
+  "electronics": {
     "title": "Electronics Area",
     "equipment": "Work with test equipment from hp and other manufacturers. Soldering workstations (2), solder reflow oven and various hand tools such as multimeters.",
     "gallery": [
@@ -153,8 +147,7 @@
       }
     ]
   },
-  {
-    "id": "laserEngravers",
+  "laserEngravers": {
     "title": "Laser Engravers",
     "equipment": "Boss 150 Watt CO2 laser and LightBurn software, Epilog Zing 30 Watt Laser Engrave and/or cut various materials at Pikes Peak Makerspace.",
     "gallery": [
@@ -188,8 +181,7 @@
       }
     ]
   },
-  {
-    "id": "metalShop",
+  "metalShop": {
     "title": "Metal Shop",
     "equipment": "Welding equipment, 3-in-1 lathe, powder coating system, drill presses, band saws and various hand tools for you to complete your projects!",
     "gallery": [
@@ -227,8 +219,7 @@
       }
     ]
   },
-  {
-    "id": "multiUse",
+  "multiUse": {
     "title": "Multi-Use Area",
     "equipment": "Make use of our Kitchen, Library, Photography Area and other shared resources at Pikes Peak Makerspace!",
     "gallery": [
@@ -262,8 +253,7 @@
       }
     ]
   },
-  {
-    "id": "woodShop",
+  "woodShop": {
     "title": "Wood Shop",
     "equipment": "Planer, bandsaw, lathe, table saw, bench grinder, miter saw, jointer, router, shaper, edge belt / spindle sander, floor drill press, jig saw and much more!",
     "gallery": [
@@ -353,4 +343,4 @@
       }
     ]
   }
-]
+}

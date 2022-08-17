@@ -4,6 +4,10 @@ import { KeyboardController } from '../KeyboardController.js';
 
 const TRAVEL_MAP_SCENE_DIV = document.getElementById('travelMapScene');
 const TRAVEL_MAP_DIV = document.getElementById('travelMap');
+const TITLE_DIV = document.getElementById('travelMapTitle');
+const EQUIPMENT_DIV = document.getElementById('travelMapEquipment');
+const TRAVEL_MAP_SVG_PATH = '../img/travelMap.svg';
+const GALLERY_JSON_PATH = '../../data/travelMap.json';
 
 // MapArea enum, capturing svg element id strings
 export const MapArea = {
@@ -119,6 +123,8 @@ export class TravelMap extends Scene {
     this.interactActive = false;
     // track last gamepad interaction for change detection
     this.lastGamepad = { buttons: [], axes: [] };
+    // loaded captions for map areas and slide images with captions for those areas
+    this.mapData = [];
   }
 
   clearMapAreaHighlights() {
@@ -137,22 +143,36 @@ export class TravelMap extends Scene {
     if (areaElement && areaElement.classList) {
       areaElement.classList.add('active')
     }
+    TITLE_DIV.innerHTML = this.mapData[mapArea].title;
+    EQUIPMENT_DIV.innerHTML = this.mapData[mapArea].equipment;
     // TODO: Move a gamepad cursor over the area
   }
 
+  async loadMapData() {
+    try {
+      const response = await fetch(GALLERY_JSON_PATH);
+      return response.json();
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  /**
+   * Keep .svg external for simpler edits, yet also place inline for simpler
+   * access to enable enhanced* external styling to svg.
+   */
   async loadMap() {
-    // Keep .svg external for simpler edits, yet also make inline for simpler
-    // access to enable enhanced* external styling to svg.
-    fetch('../img/travelMap.svg')
-      .then(r => r.text())
-      .then(text => {
-        const textAsDom = document.createRange().createContextualFragment(text);
-        TRAVEL_MAP_DIV.appendChild(textAsDom);
-        this.highlightMapArea(this.activeMapArea);
-        this.interactActive = true;
-        // TODO: listen to map events
-      })
-      .catch(console.error.bind(console));
+    try {
+      const response = await fetch(TRAVEL_MAP_SVG_PATH);
+      const svg = await response.text();
+      const textAsDom = document.createRange().createContextualFragment(svg);
+      TRAVEL_MAP_DIV.appendChild(textAsDom);
+      this.highlightMapArea(this.activeMapArea);
+      this.interactActive = true;
+      // TODO: listen to map events
+    } catch(err) {
+      console.error(err);
+    }
   }
 
   unloadMap() {
@@ -240,14 +260,18 @@ export class TravelMap extends Scene {
     this.lastGamepad = gamepad;
   }
 
-  init() {
+  async init() {
     for(const controller of this.gameControllers) {
       controller.init();
     }
 
-    this.loadMap();
-
-    this.resetIdleTimeout();
-    TRAVEL_MAP_SCENE_DIV.classList.remove('hidden');
+    try {
+      this.mapData = await this.loadMapData();
+      await this.loadMap();
+      this.resetIdleTimeout();
+      TRAVEL_MAP_SCENE_DIV.classList.remove('hidden');
+    } catch(err) {
+      console.error(err);
+    }
   }
 }

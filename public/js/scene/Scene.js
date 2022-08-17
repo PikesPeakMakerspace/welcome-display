@@ -11,7 +11,7 @@ export class Scene {
   /**
    * Initialize the scene
    */
-  init() {
+  async init() {
     
   }
 
