@@ -40,7 +40,7 @@ export class Logo extends Scene {
     this.endScene();
   }
 
-  init() {
+  async init() {
     for(const controller of this.gameControllers) {
       controller.init();
     }
