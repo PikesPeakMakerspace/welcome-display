@@ -81,14 +81,15 @@ export class KioskServer {
     // TODO: This kills the Mac. Need to optionally load or mock
     this.bit0 = new Gpio(16, 'out'); // GPIO16 = bit 0;
     this.bit1 = new Gpio(19, 'out'); // GPIO19 = bit 1;
-    this.bit2 = new Gpio(20, 'out'); // GPIO20 = bit 2
-    this.bit3 = new Gpio(21, 'out'); // GPIO21 = bit 3
+    this.bit2 = new Gpio(20, 'out'); // GPIO20 = bit 2;
+    this.bit3 = new Gpio(21, 'out'); // GPIO21 = bit 3;
   }
 
   // TODO: This probably should move to its own class...
   setGpioColor(mapArea) {
-    if (MapArea.hasOwnProperty(mapArea)) {
-      const sequence = mapAreaColorSequence[MapArea[mapArea]];
+    if (mapAreaColorSequence[mapArea]) {
+      const sequence = mapAreaColorSequence[mapArea];
+      console.log(mapArea, sequence);
       this.bit0.writeSync(sequence[0]);
       this.bit1.writeSync(sequence[1]);
       this.bit2.writeSync(sequence[2]);
