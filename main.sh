@@ -3,10 +3,10 @@ url="http://127.0.0.1:8080"
 
 init() {
     cd /home/pi/Desktop/welcome-display
-    /usr/bin/git pull
+    git pull
     cd server
     npm i
-    node server.js
+    node server.js &
 }
 
 main() {
