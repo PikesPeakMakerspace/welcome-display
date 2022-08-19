@@ -1,0 +1,28 @@
+{
+  "name": "welcome-display",
+  "version": "1.0.0",
+  "description": "Designed for a vertical screen mounted in a \"mall map\" frame, this display welcomes visitors and showcases PPM's equipment. The display is targeted towards new guests and visitors of a traveling booth.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PikesPeakMakerspace/welcome-display.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PikesPeakMakerspace/welcome-display/issues"
+  },
+  "homepage": "https://github.com/PikesPeakMakerspace/welcome-display#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "http": "0.0.1-security",
+    "socket.io": "^4.5.1"
+  },
+  "type": "module"
+}
