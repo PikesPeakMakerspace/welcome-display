@@ -41,7 +41,6 @@ export class KioskServer {
     this.server = createServer(this._app);
     this.io = new SocketServer(this.server);
 
-    this.initBaseRoutes();
     this.listen();
   }
 
@@ -67,15 +66,6 @@ export class KioskServer {
       socket.on(SocketIoEvent.ERROR, (error) => {
         console.log('Client error');
       });
-    });
-  }
-
-  /**
-   * Initial base web toolkit server routes.
-   */
-  initBaseRoutes() {
-    this.router.get("/", (req, res) => {
-      res.sendFile(`${PUBLIC_FOLDER}/index.html`);
     });
   }
 
