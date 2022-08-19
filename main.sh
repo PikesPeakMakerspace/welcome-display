@@ -6,7 +6,7 @@ init() {
     /usr/bin/git pull
     cd server
     npm i
-    node server/server.js &&
+    node server.js
 }
 
 main() {
