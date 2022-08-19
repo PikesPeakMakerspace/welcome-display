@@ -1,6 +1,7 @@
 import { Scene } from './Scene.js';
 import { GameController, GamepadRockCandy as Gamepad } from '../GameController.js';
 import { KeyboardController } from '../KeyboardController.js';
+import { io } from '../socket.io.esm.min.js';
 
 const TRAVEL_MAP_SCENE_DIV = document.getElementById('travelMapScene');
 const TRAVEL_MAP_DIV = document.getElementById('travelMap');
@@ -125,6 +126,8 @@ export class TravelMap extends Scene {
     this.lastGamepad = { buttons: [], axes: [] };
     // loaded captions for map areas and slide images with captions for those areas
     this.mapData = [];
+    // socket.io connection used to send selected area color back to server, to send to Pi GPIO pins
+    this.io = {};
   }
 
   clearMapAreaHighlights() {
@@ -145,7 +148,13 @@ export class TravelMap extends Scene {
     }
     TITLE_DIV.innerHTML = this.mapData[mapArea].title;
     EQUIPMENT_DIV.innerHTML = this.mapData[mapArea].equipment;
+    // Tell server which area to set matching LED colors!
+    this.io.emit('mapArea', mapArea)
     // TODO: Move a gamepad cursor over the area
+  }
+
+  setSocketConnection() {
+    this.io = io();
   }
 
   async loadMapData() {
@@ -264,6 +273,8 @@ export class TravelMap extends Scene {
     for(const controller of this.gameControllers) {
       controller.init();
     }
+
+    this.setSocketConnection()
 
     try {
       this.mapData = await this.loadMapData();
