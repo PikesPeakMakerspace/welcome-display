@@ -89,10 +89,10 @@ export class KioskServer {
   setGpioColor(mapArea) {
     if (MapArea.hasOwnProperty(mapArea)) {
       const sequence = mapAreaColorSequence[MapArea[mapArea]];
-      bit0.writeSync(sequence[0]);
-      bit1.writeSync(sequence[1]);
-      bit2.writeSync(sequence[2]);
-      bit3.writeSync(sequence[3]);
+      this.bit0.writeSync(sequence[0]);
+      this.bit1.writeSync(sequence[1]);
+      this.bit2.writeSync(sequence[2]);
+      this.bit3.writeSync(sequence[3]);
     }
   }
 
