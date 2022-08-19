@@ -120,6 +120,7 @@ export class KioskServer {
 
       socket.on(SocketIoEvent.MAP_AREA, (mapArea) => {
         console.log('mapArea', mapArea);
+        this.setGpioColor(mapArea);
       });
     });
   }
