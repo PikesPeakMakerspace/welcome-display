@@ -117,19 +117,19 @@
 	</g>
 </g>
 <g id="areaLabels">
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 164.0747 103.7991)" class="st19 st20 st21">WOOD SHOP</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 25.8548 121.6448)" class="st19 st20 st21">CNC</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 327.925 80.7317)" class="st19 st20 st21">METAL SHOP</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 164.0747 103.7991)" class="st22 st20 st21">WOOD SHOP</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 25.8548 121.6448)" class="st22 st20 st21">CNC ROOM</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 327.925 80.7317)" class="st22 st20 st21">METAL SHOP</text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 478.9324 382.3171)" class="st22 st20 st21">3D </text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 481.2901 399.557)" class="st22 st20 st21">PRINTING</text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 520.1304 685.1411)" class="st22 st20 st21">DEDICATED</text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 522.488 702.381)" class="st22 st20 st21">SPACE</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 327.9249 402.4041)" class="st19 st20 st21">ELECTRONICS</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 327.9249 402.4041)" class="st22 st20 st21">ELECTRONICS</text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 361.0663 641.3872)" class="st22 st20 st21">COMPUTERS </text>
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 363.424 658.6271)" class="st22 st20 st21">PRINTERS</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 97.4465 551.5082)" class="st19 st20 st21">LASER</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 112.4484 663.9507)" class="st19 st20 st21">MULTI-USE</text>
-	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 139.5124 949.2388)" class="st19 st20 st21">DEDICATED SPACE</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 97.4465 551.5082)" class="st22 st20 st21">LASERS</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 112.4484 663.9507)" class="st22 st20 st21">MULTI-USE</text>
+	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 139.5124 949.2388)" class="st22 st20 st21">DEDICATED SPACE</text>
 </g>
 <g id="exitLabels">
 	<text transform="matrix(0.9908 -0.1355 0.1355 0.9908 312.3141 1051.6542)" class="st23 st20 st24">NORTH ENTRANCE</text>
