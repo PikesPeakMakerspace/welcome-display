@@ -1,5 +1,6 @@
 @import "logoScene.css";
 @import "travelMapScene.css";
+@import "slideshow.css";
 
 * {
   box-sizing: content-box;
