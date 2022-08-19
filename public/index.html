@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="scenes">
-      
+
       <div id="logoScene" class="hidden">
         <canvas id="logoBackground"></canvas>
         <div class="logoContainer">
@@ -25,13 +25,24 @@
             <div id="travelMapEquipment" class="equipment"></div>
           </div>
         </div>
-        <div id="travelMap">
-          <!--<object class="map" type="image/svg+xml" data="./img/travelMap.svg"></object>-->
-        </div>
-        
+        <div id="travelMap"></div>
       </div>
 
     </div>
+
+    <div id="slideshow" class="hidden">
+      <div id="slideshowNav">
+        <div id="slideshowLeft">&larr;</div>
+        <div id="slideshowRight">&rarr;</div>
+        <div id="slideshowCounter">1 of 10</div>
+        <div id="slideshowClose">X</div>
+      </div>
+      <img id="slideshowImg" src="./img/gallery/cncRoom/Chair_glue-up.jpg" alt="Slideshow Image" />
+      <div id="slideshowCaption">
+        CNC-cut Wooden Chair
+      </div>
+    </div>
+
     <script src="./js/logoBackground.js"></script>
     <script type="module">
       import { App, KioskMode, KioskScene } from './js/App.js';

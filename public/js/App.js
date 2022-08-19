@@ -16,10 +16,7 @@ export const KioskScene = {
 
 /** Represents the main app */
 export class App {
-  /**
-   * Create the App.
-   * @param {string} mode - Kiosk mode: see ModeTypes
-   */
+  
   constructor(
     scenes = [KioskScene.LOGO],
   ) {
