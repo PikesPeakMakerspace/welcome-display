@@ -1,6 +1,6 @@
 #travelMapScene #travelMap,
 #travelMapScene #travelMap text {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'DejaVu Sans', Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #travelMapScene {
@@ -37,18 +37,18 @@
 }
 
 #travelMapScene .overview .title {
-  font-size: 3.2em;
-  line-height: 50px;
+  font-size: 5.6em;
+  line-height: 86px;
   color: #9ec2e7;
-  border-bottom: #9ec2e7 solid 2px;
-  padding-top: 24px;
+  border-bottom: #9ec2e7 solid 3px;
+  margin-top: -13px;
 }
 
 #travelMapScene .overview .equipment {
   padding: 20px 32px 0 0;
-  font-size: 1.6em;
+  font-size: 2.4em;
   line-height: 1.2em;
-  min-height: 5.6em;
+  min-height: 5em;
 }
 
 #travelMapScene #travelMap {
@@ -180,13 +180,4 @@
 #travelMapScene #travelMap #dedicatedSpace2:hover polygon,
 #travelMapScene #travelMap #dedicatedSpace2.active polygon {
   fill: #758a90;
-}
-
-#tempSize {
-  background: #000;
-  color: #FFF;
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 0px;
 }
