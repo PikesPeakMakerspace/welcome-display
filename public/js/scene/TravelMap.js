@@ -1,6 +1,5 @@
 import { Scene } from './Scene.js';
-import { GameController, GamepadRockCandy as Gamepad } from '../GameController.js';
-import { KeyboardController } from '../KeyboardController.js';
+import { StepController, StepAction } from '../input/StepController.js';
 import { io } from '../socket.io.esm.min.js';
 
 const TRAVEL_MAP_SCENE_DIV = document.getElementById('travelMapScene');
@@ -24,75 +23,55 @@ export const MapArea = {
   DEDICATED_SPACE_2: 'dedicatedSpace2',
 }
 
-// Names of effective button actions for the map and its slideshows
-const Action = {
-  LEFT: 'left',
-  RIGHT: 'right',
-  UP: 'up',
-  DOWN: 'down',
-  SELECT: 'select',
-  DISMISS: 'dismiss'
-}
-
-// map actions with reported gamepad indices
-const ACTION_BUTTON_MAP = {
-  [Action.LEFT]: [Gamepad.DPADL, Gamepad.LB, Gamepad.LT],
-  [Action.RIGHT]: [Gamepad.DPADR, Gamepad.RB, Gamepad.RT],
-  [Action.UP]: [Gamepad.DPADU],
-  [Action.DOWN]: [Gamepad.DPADD],
-  [Action.DISMISS]: [Gamepad.A, Gamepad.X, Gamepad.START, Gamepad.THUMBR],
-  [Action.SELECT]: [Gamepad.B, Gamepad.Y, Gamepad.BACK, Gamepad.THUMBL],
-}
-
 // When X area is active and Y gamepad event happens, move to area Z
 const LOCATION_NAV_MAP = {
   [MapArea.CNC_ROOM]: {
-    [Action.RIGHT]: MapArea.WOOD_SHOP,
-    [Action.DOWN]: MapArea.WOOD_SHOP,
+    [StepAction.RIGHT]: MapArea.WOOD_SHOP,
+    [StepAction.DOWN]: MapArea.WOOD_SHOP,
   },
   [MapArea.WOOD_SHOP]: {
-    [Action.RIGHT]: MapArea.METAL_SHOP,
-    [Action.LEFT]: MapArea.CNC_ROOM,
-    [Action.UP]: MapArea.CNC_ROOM,
-    [Action.DOWN]: MapArea.LASERS,
+    [StepAction.RIGHT]: MapArea.METAL_SHOP,
+    [StepAction.LEFT]: MapArea.CNC_ROOM,
+    [StepAction.UP]: MapArea.CNC_ROOM,
+    [StepAction.DOWN]: MapArea.LASERS,
   },
   [MapArea.METAL_SHOP]: {
-    [Action.LEFT]: MapArea.WOOD_SHOP,
-    [Action.DOWN]: MapArea.ELECTRONICS,
+    [StepAction.LEFT]: MapArea.WOOD_SHOP,
+    [StepAction.DOWN]: MapArea.ELECTRONICS,
   },
   [MapArea.LASERS]: {
-    [Action.RIGHT]: MapArea.ELECTRONICS,
-    [Action.DOWN]: MapArea.MULTI_USE,
-    [Action.UP]: MapArea.WOOD_SHOP,
+    [StepAction.RIGHT]: MapArea.ELECTRONICS,
+    [StepAction.DOWN]: MapArea.MULTI_USE,
+    [StepAction.UP]: MapArea.WOOD_SHOP,
   },
   [MapArea.ELECTRONICS]: {
-    [Action.RIGHT]: MapArea.PRINTERS_3D,
-    [Action.LEFT]: MapArea.LASERS,
-    [Action.DOWN]: MapArea.COMPUTERS_PRINTERS,
-    [Action.UP]: MapArea.METAL_SHOP,
+    [StepAction.RIGHT]: MapArea.PRINTERS_3D,
+    [StepAction.LEFT]: MapArea.LASERS,
+    [StepAction.DOWN]: MapArea.COMPUTERS_PRINTERS,
+    [StepAction.UP]: MapArea.METAL_SHOP,
   },
   [MapArea.PRINTERS_3D]: {
-    [Action.LEFT]: MapArea.ELECTRONICS,
-    [Action.DOWN]: MapArea.DEDICATED_SPACE_2,
-    [Action.UP]: MapArea.METAL_SHOP,
+    [StepAction.LEFT]: MapArea.ELECTRONICS,
+    [StepAction.DOWN]: MapArea.DEDICATED_SPACE_2,
+    [StepAction.UP]: MapArea.METAL_SHOP,
   },
   [MapArea.MULTI_USE]: {
-    [Action.RIGHT]: MapArea.COMPUTERS_PRINTERS,
-    [Action.UP]: MapArea.LASERS,
-    [Action.DOWN]: MapArea.DEDICATED_SPACE_1,
+    [StepAction.RIGHT]: MapArea.COMPUTERS_PRINTERS,
+    [StepAction.UP]: MapArea.LASERS,
+    [StepAction.DOWN]: MapArea.DEDICATED_SPACE_1,
   },
   [MapArea.COMPUTERS_PRINTERS]: {
-    [Action.RIGHT]: MapArea.DEDICATED_SPACE_2,
-    [Action.LEFT]: MapArea.MULTI_USE,
-    [Action.UP]: MapArea.ELECTRONICS,
+    [StepAction.RIGHT]: MapArea.DEDICATED_SPACE_2,
+    [StepAction.LEFT]: MapArea.MULTI_USE,
+    [StepAction.UP]: MapArea.ELECTRONICS,
   },
   [MapArea.DEDICATED_SPACE_1]: {
-    [Action.RIGHT]: MapArea.DEDICATED_SPACE_2,
-    [Action.UP]: MapArea.MULTI_USE,
+    [StepAction.RIGHT]: MapArea.DEDICATED_SPACE_2,
+    [StepAction.UP]: MapArea.MULTI_USE,
   },
   [MapArea.DEDICATED_SPACE_2]: {
-    [Action.LEFT]: MapArea.COMPUTERS_PRINTERS,
-    [Action.UP]: MapArea.PRINTERS_3D,
+    [StepAction.LEFT]: MapArea.COMPUTERS_PRINTERS,
+    [StepAction.UP]: MapArea.PRINTERS_3D,
   },
 }
 
@@ -113,10 +92,7 @@ export class TravelMap extends Scene {
     this.activeMapArea = firstMapArea;
     this.idleTimeoutMilliseconds = idleTimeoutMilliseconds;
 
-    this.gameControllers = [
-      new GameController(this.handleControllerChange.bind(this)),
-      new KeyboardController(this.handleControllerChange.bind(this)),
-    ];
+    this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.idleTimeout = {}
     // TODO: is it dom object?:
     this.mapSvg = '';
@@ -189,10 +165,8 @@ export class TravelMap extends Scene {
   }
 
   cleanup() {
-    for(const index in this.gameControllers) {
-      this.gameControllers[index].cleanup();
-      this.gameControllers[index] = null;
-    }
+    this.stepController.cleanup();
+    this.stepController = null;
 
     this.unloadMap();
 
@@ -213,32 +187,7 @@ export class TravelMap extends Scene {
     this.idleTimeout = setTimeout(this.cleanupAndEnd.bind(this), this.idleTimeoutMilliseconds);
   }
 
-  /**
-   * When pressing multiple buttons at the same time, example: down+right, and letting
-   * one of those go like down, reduce duplicates so not to to trigger right button twice.
-   */
-  cancelExistingButtons(activeButtons, lastButtons) {
-    return activeButtons.filter(button => {
-      return !lastButtons.includes(button);
-    });
-  }
-
-  /**
-   * Multiple buttons can result in the same action. Reduce that here.
-   */
-  getGamepadAction (gamepadButtonIndex) {
-    for (const action in ACTION_BUTTON_MAP) {
-      if (ACTION_BUTTON_MAP[action].includes(gamepadButtonIndex)) {
-        return action;
-      }
-    }
-    console.log(`gamepad index of ${gamepadButtonIndex} doesn't have a valid action assigned`);
-    return;
-  }
-
-  pickNextArea(activeArea, gamepadButtonIndex) {
-    const action = this.getGamepadAction(gamepadButtonIndex);
-    console.log(action);
+  pickNextArea(activeArea, action) {
     if (
       LOCATION_NAV_MAP[activeArea] &&
       LOCATION_NAV_MAP[activeArea][action]
@@ -249,32 +198,22 @@ export class TravelMap extends Scene {
     return;
   }
 
-  // TODO: this is only working with buttons, not thumbsticks at the moment,
-  // thumbstick support would be cool!
-  handleControllerChange(gamepad) {
+  handleControllerChange(action) {
     this.resetIdleTimeout();
-    let nextAreaId;
-    const reducedButtons = this.cancelExistingButtons(gamepad.buttons, this.lastGamepad.buttons);
-
-    if (this.interactActive && reducedButtons.length > 0) {
-      for (const button of reducedButtons) {
-        nextAreaId = this.pickNextArea(this.activeMapArea, button);
-        if (nextAreaId) {
-          this.highlightMapArea(nextAreaId);
-          this.activeMapArea = nextAreaId;
-        }
-      }
+    const nextAreaId = this.pickNextArea(this.activeMapArea, action);
+    if (nextAreaId) {
+      this.highlightMapArea(nextAreaId);
+      this.activeMapArea = nextAreaId;
     }
-
-    this.lastGamepad = gamepad;
   }
 
   async init() {
-    for(const controller of this.gameControllers) {
-      controller.init();
-    }
-
+    this.stepController.init();
     this.setSocketConnection()
+
+    // TEMP
+    document.getElementById('tempSize').innerHTML = `${window.innerWidth}x${window.innerHeight}`;
+    // END TEMP
 
     try {
       this.mapData = await this.loadMapData();

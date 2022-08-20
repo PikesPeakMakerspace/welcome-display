@@ -1,4 +1,4 @@
-import { numberArraysMatch } from './utils.js';
+import { numberArraysMatch } from '../utils.js';
 
 // Every gamepad is different. Let's start with the donated rock candy controller.
 // TODO: How will we best support other controllers in the future? 

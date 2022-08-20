@@ -26,6 +26,7 @@
           </div>
         </div>
         <div id="travelMap"></div>
+        <div id="tempSize">0x0</div>
       </div>
 
     </div>
@@ -50,8 +51,8 @@
       (() => {
         const app = new App(
           [
-            KioskScene.TRAVEL_MAP,
             KioskScene.LOGO,
+            KioskScene.TRAVEL_MAP,
           ],
         );
         app.init();

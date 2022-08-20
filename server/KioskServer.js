@@ -5,9 +5,9 @@ import { createServer, Server } from 'http';
 import { resolve } from 'path';
 import cors from 'cors';
 import { Gpio } from 'onoff';
+import isPi from 'detect-rpi';
 
 const PUBLIC_FOLDER = resolve(process.cwd(), '..') + '/public';
-console.log(PUBLIC_FOLDER);
 
 const SocketIoEvent = {
   CONNECT: 'connect',
@@ -78,11 +78,12 @@ export class KioskServer {
   }
 
   initGpio() {
-    // TODO: This kills the Mac. Need to optionally load or mock
-    this.bit0 = new Gpio(16, 'out'); // GPIO16 = bit 0;
-    this.bit1 = new Gpio(19, 'out'); // GPIO19 = bit 1;
-    this.bit2 = new Gpio(20, 'out'); // GPIO20 = bit 2;
-    this.bit3 = new Gpio(21, 'out'); // GPIO21 = bit 3;
+    if (isPi()) {
+      this.bit0 = new Gpio(21, 'out');
+      this.bit1 = new Gpio(20, 'out');
+      this.bit2 = new Gpio(19, 'out');
+      this.bit3 = new Gpio(16, 'out');
+    }
   }
 
   // TODO: This probably should move to its own class...
@@ -90,10 +91,12 @@ export class KioskServer {
     if (mapAreaColorSequence[mapArea]) {
       const sequence = mapAreaColorSequence[mapArea];
       console.log(mapArea, sequence);
-      this.bit0.writeSync(sequence[0]);
-      this.bit1.writeSync(sequence[1]);
-      this.bit2.writeSync(sequence[2]);
-      this.bit3.writeSync(sequence[3]);
+      if (isPi()) {
+        this.bit0.writeSync(sequence[0]);
+        this.bit1.writeSync(sequence[1]);
+        this.bit2.writeSync(sequence[2]);
+        this.bit3.writeSync(sequence[3]);
+      }
     }
   }
 
@@ -120,7 +123,6 @@ export class KioskServer {
       });
 
       socket.on(SocketIoEvent.MAP_AREA, (mapArea) => {
-        console.log('mapArea', mapArea);
         this.setGpioColor(mapArea);
       });
     });

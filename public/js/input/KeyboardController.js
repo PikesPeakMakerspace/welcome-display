@@ -1,4 +1,4 @@
-import { numberArraysMatch } from './utils.js';
+import { numberArraysMatch } from '../utils.js';
 
 // Map keyboard interactions to gamepad-like values for matching gamepad index readings
 // Simplifying for purposes of this project.

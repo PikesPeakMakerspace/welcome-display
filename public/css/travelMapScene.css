@@ -12,6 +12,10 @@
   align-items: stretch;
 }
 
+#travelMapScene.hidden {
+  display: none;
+}
+
 #travelMapScene .logo {
   width: 160px;
   height: 130px;
@@ -176,4 +180,13 @@
 #travelMapScene #travelMap #dedicatedSpace2:hover polygon,
 #travelMapScene #travelMap #dedicatedSpace2.active polygon {
   fill: #758a90;
+}
+
+#tempSize {
+  background: #000;
+  color: #FFF;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0px;
 }
