@@ -1,6 +1,7 @@
 import { Scene } from './Scene.js';
 import { StepController, StepAction } from '../input/StepController.js';
 import { io } from '../socket.io.esm.min.js';
+import { Slideshow } from '../Slideshow.js';
 
 const TRAVEL_MAP_SCENE_DIV = document.getElementById('travelMapScene');
 const TRAVEL_MAP_DIV = document.getElementById('travelMap');
@@ -93,13 +94,14 @@ export class TravelMap extends Scene {
     this.idleTimeoutMilliseconds = idleTimeoutMilliseconds;
 
     this.stepController = new StepController(this.handleControllerChange.bind(this));
+    // track last gamepad interaction for change detection
+    this.lastGamepad = { buttons: [], axes: [] };
     this.idleTimeout = {}
     // TODO: is it dom object?:
     this.mapSvg = '';
-    // don't track game controller interactions when slideshow is active or still loading
-    this.interactActive = false;
-    // track last gamepad interaction for change detection
-    this.lastGamepad = { buttons: [], axes: [] };
+    // don't track game controller interactions when slideshow is active
+    this.slideshowActive = false;
+    this.slideshow = {};
     // loaded captions for map areas and slide images with captions for those areas
     this.mapData = [];
     // socket.io connection used to send selected area color back to server, to send to Pi GPIO pins
@@ -153,7 +155,6 @@ export class TravelMap extends Scene {
       const textAsDom = document.createRange().createContextualFragment(svg);
       TRAVEL_MAP_DIV.appendChild(textAsDom);
       this.highlightMapArea(this.activeMapArea);
-      this.interactActive = true;
       // TODO: listen to map events
     } catch(err) {
       console.error(err);
@@ -167,6 +168,8 @@ export class TravelMap extends Scene {
   cleanup() {
     this.stepController.cleanup();
     this.stepController = null;
+
+    this.closeSlideshow();
 
     this.unloadMap();
 
@@ -192,14 +195,37 @@ export class TravelMap extends Scene {
       LOCATION_NAV_MAP[activeArea] &&
       LOCATION_NAV_MAP[activeArea][action]
     ) {
-      console.log(LOCATION_NAV_MAP[activeArea][action]);
       return LOCATION_NAV_MAP[activeArea][action];
     }
     return;
   }
 
+  startSlideshow() {
+    this.slideshowActive = true;
+    this.slideshow = new Slideshow(this.mapData[this.activeMapArea], this.closeSlideshow.bind(this));
+    this.slideshow.init();
+  }
+
+  closeSlideshow() {
+    if (this.slideshow) {
+      this.slideshow = null;
+      this.slideshowActive = false;
+    }
+  }
+
   handleControllerChange(action) {
     this.resetIdleTimeout();
+
+    if(this.slideshowActive) {
+      return;
+    }
+
+    // accept most buttons to select/toggle for now
+    if (action === StepAction.SELECT || action === StepAction.DISMISS) {
+      this.startSlideshow();
+      return;
+    }
+    
     const nextAreaId = this.pickNextArea(this.activeMapArea, action);
     if (nextAreaId) {
       this.highlightMapArea(nextAreaId);
