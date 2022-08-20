@@ -8,7 +8,6 @@ import { Gpio } from 'onoff';
 import isPi from 'detect-rpi';
 
 const PUBLIC_FOLDER = resolve(process.cwd(), '..') + '/public';
-console.log(PUBLIC_FOLDER);
 
 const SocketIoEvent = {
   CONNECT: 'connect',

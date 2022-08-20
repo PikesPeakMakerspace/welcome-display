@@ -1,6 +1,5 @@
 import { Scene } from './Scene.js';
-import { GameController } from '../GameController.js';
-import { KeyboardController } from '../KeyboardController.js';
+import { StepController, StepAction } from '../input/StepController.js';
 
 const LOGO_DIV = document.getElementById('logoScene');
 
@@ -15,17 +14,12 @@ export class Logo extends Scene {
     super();
     this.onSceneEnd = onSceneEnd;
 
-    this.gameControllers = [
-      new GameController(this.handleControllerChange.bind(this)),
-      new KeyboardController(this.handleControllerChange.bind(this)),
-    ];
+    this.stepController = new StepController(this.handleControllerChange.bind(this));
   }
 
   cleanup() {
-    for(const index in this.gameControllers) {
-      this.gameControllers[index].cleanup();
-      this.gameControllers[index] = null;
-    }
+    this.stepController.cleanup();
+    this.stepController = null;
 
     LOGO_DIV.classList.add('hidden');
 
@@ -41,9 +35,7 @@ export class Logo extends Scene {
   }
 
   async init() {
-    for(const controller of this.gameControllers) {
-      controller.init();
-    }
+    this.stepController.init();
 
     LOGO_DIV.classList.remove('hidden');
     // TODO: Make a nicer particle effect thing that's not copied from Code Pen:
