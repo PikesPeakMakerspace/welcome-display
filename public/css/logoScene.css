@@ -28,7 +28,7 @@
 }
 
 #logoScene .logo {
-  height: 400px;
+  width: 70%;
 }
 
 @keyframes logoFadeInOut {

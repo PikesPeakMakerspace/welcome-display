@@ -17,7 +17,7 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
         x: Math.random() * this.context.canvas.width,
         y: Math.random() * this.context.canvas.height,
         angle: Math.random() * 360 * (Math.PI / 180),
-        speed: Math.random() * 10
+        speed: Math.random() * 5
       }
       lights.push(light);
     }
@@ -33,7 +33,7 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
       with(this.context) {
         fillStyle = "#FF6700";
         beginPath();
-        arc(light.x, light.y, 5, 0, 2 * Math.PI, false);
+        arc(light.x, light.y, 3.5, 0, 2 * Math.PI, false);
         fill();
         closePath();
       }
@@ -53,8 +53,8 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
     var canvas = LOGO_BACKGROUND;
     var context = canvas.getContext("2d");
 
-    var canvasWid = window.innerWidth;
-    var canvasHig = window.innerHeight;
+    var canvasWid = window.innerWidth / 3;
+    var canvasHig = window.innerHeight / 3;
 
     canvas.width = canvasWid;
     canvas.height = canvasHig;
@@ -68,7 +68,7 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
       }
 
       throttle++;
-      if (throttle >= 6) {
+      if (throttle >= 3) {
         throttle = 0;
         context.clearRect(0, 0, canvasWid, canvasHig);
         myDelaunayDataSet.drawLight();
