@@ -276,6 +276,10 @@ export class TravelMap extends Scene {
 
     this.setSocketConnection()
 
+    // TEMP
+    document.getElementById('tempSize').innerHTML = `${window.innerWidth}x${window.innerHeight}`;
+    // END TEMP
+
     try {
       this.mapData = await this.loadMapData();
       await this.loadMap();
