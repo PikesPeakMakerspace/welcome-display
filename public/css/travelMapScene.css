@@ -12,6 +12,10 @@
   align-items: stretch;
 }
 
+#travelMapScene.hidden {
+  display: none;
+}
+
 #travelMapScene .logo {
   width: 160px;
   height: 130px;
