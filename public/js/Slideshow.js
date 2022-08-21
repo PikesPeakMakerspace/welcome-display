@@ -4,6 +4,9 @@ const SLIDESHOW_DIV = document.getElementById('slideshow');
 const SLIDESHOW_IMG_DIV = document.getElementById('slideshowImg');
 const SLIDESHOW_CAPTION_DIV = document.getElementById('slideshowCaption');
 const SLIDESHOW_COUNTER_DIV = document.getElementById('slideshowCounter');
+const SLIDESHOW_RIGHT_DIV = document.getElementById('slideshowRight');
+const SLIDESHOW_LEFT_DIV = document.getElementById('slideshowLeft');
+const SLIDESHOW_CLOSE_DIV = document.getElementById('slideshowClose');
 
 /** Represents a slideshow modal/overlay that accepts a game controller to navigate */
 export class Slideshow {
@@ -16,6 +19,9 @@ export class Slideshow {
     this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.curSlide = 0;
     this.images = [];
+    this.previousClicked = this.previousMouseClickHandler.bind(this);
+    this.nextClicked = this.nextMouseClickHandler.bind(this);
+    this.closeClicked = this.closeMouseClickHandler.bind(this);
   }
 
   handleControllerChange(action) {
@@ -65,7 +71,32 @@ export class Slideshow {
     }
   }
 
+  nextMouseClickHandler() {
+    this.nextSlide();
+  }
+
+  previousMouseClickHandler() {
+    this.previousSlide();
+  }
+
+  closeMouseClickHandler() {
+    this.cleanup();
+  }
+
+  addMouseEventListers() {
+    SLIDESHOW_RIGHT_DIV.addEventListener('click', this.nextClicked);
+    SLIDESHOW_LEFT_DIV.addEventListener('click', this.previousClicked);
+    SLIDESHOW_CLOSE_DIV.addEventListener('click', this.closeClicked);
+  }
+
+  removeMouseEventListers() {
+    SLIDESHOW_RIGHT_DIV.removeEventListener('click', this.nextClicked);
+    SLIDESHOW_LEFT_DIV.removeEventListener('click', this.previousClicked);
+    SLIDESHOW_CLOSE_DIV.removeEventListener('click', this.closeClicked);
+  }
+
   cleanup() {
+    this.removeMouseEventListers();
     this.stepController.cleanup();
     this.stepController = null;
     SLIDESHOW_DIV.classList.add('hidden');
@@ -76,6 +107,7 @@ export class Slideshow {
     this.preloadImages()
     this.stepController.init();
     this.loadSlide();
+    this.addMouseEventListers();
     SLIDESHOW_DIV.classList.remove('hidden');
   }
 }
