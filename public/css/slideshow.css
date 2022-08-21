@@ -30,6 +30,7 @@
 #slideshowClose:hover {
   color: #FFF;
   cursor: pointer;
+  user-select: none;
 }
 
 #slideshowRight {
