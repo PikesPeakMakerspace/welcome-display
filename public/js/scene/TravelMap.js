@@ -113,7 +113,7 @@ export class TravelMap extends Scene {
     for (const key in MapArea) {
       areaElement = document.getElementById(MapArea[key]);
       if (areaElement && areaElement.classList) {
-        areaElement.classList.remove('active')
+        areaElement.classList.remove('active');
       }
     }
   }
