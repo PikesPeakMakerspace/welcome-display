@@ -1,11 +1,11 @@
 #slideshow {
   width: 100%;
-  height: calc(100% - 250px);
+  height: calc(100% - 340px);
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
   left: 0;
   right: 0;
-  padding-top: 250px;
+  padding-top: 340px;
   box-sizing: content-box;
 }
 
@@ -14,7 +14,7 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 2.4em;
   width: 90%;
   padding: 0 5% 0.5em 5%;
 }
@@ -44,7 +44,7 @@
 #slideshowImg {
   width: 90%;
   height: auto;
-  max-height: 75%;
+  max-height: 70%;
   object-fit: scale-down;
   margin-left: 5%;
   background: #050b13;
@@ -52,6 +52,6 @@
 
 #slideshowCaption {
   padding: 0.5em 5% 0 5%;
-  font-size: 1.6em;
+  font-size: 2.4em;
   line-height: 1.2em;
 }

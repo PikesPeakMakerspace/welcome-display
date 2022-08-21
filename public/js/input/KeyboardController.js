@@ -16,6 +16,8 @@ export const WatchedKeys = {
   ARROW_DOWN: 'ArrowDown',
   ARROW_LEFT: 'ArrowLeft',
   ARROW_RIGHT: 'ArrowRight',
+  ENTER: 'Enter',
+  ESCAPE: 'Escape',
   A: 'a',
   D: 'd',
 }
@@ -81,7 +83,14 @@ export class KeyboardController {
       case WatchedKeys.A:
         this.pressGamepadButton(GamepadKeyboard.A);
         break;
+      case WatchedKeys.ENTER:
+        this.pressGamepadButton(GamepadKeyboard.A);
+        break;
       case WatchedKeys.D:
+        // B gamepad button, D key on keyboard (AWSD directional thing)
+        this.pressGamepadButton(GamepadKeyboard.B);
+        break;
+      case WatchedKeys.ESCAPE:
         // B gamepad button, D key on keyboard (AWSD directional thing)
         this.pressGamepadButton(GamepadKeyboard.B);
         break;
@@ -105,8 +114,14 @@ export class KeyboardController {
       case WatchedKeys.A:
         this.releaseGamepadButton(GamepadKeyboard.A);
         break;
+      case WatchedKeys.ENTER:
+        this.releaseGamepadButton(GamepadKeyboard.A);
+        break;
       case WatchedKeys.D:
         // B gamepad button, D key on keyboard (AWSD directional thing)
+        this.releaseGamepadButton(GamepadKeyboard.B);
+        break;
+      case WatchedKeys.ESCAPE:
         this.releaseGamepadButton(GamepadKeyboard.B);
         break;
     }

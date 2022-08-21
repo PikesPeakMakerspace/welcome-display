@@ -202,7 +202,7 @@ export class TravelMap extends Scene {
 
   startSlideshow() {
     this.slideshowActive = true;
-    this.slideshow = new Slideshow(this.mapData[this.activeMapArea], this.closeSlideshow.bind(this));
+    this.slideshow = new Slideshow(this.mapData[this.activeMapArea].gallery, this.closeSlideshow.bind(this));
     this.slideshow.init();
   }
 
