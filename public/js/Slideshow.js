@@ -8,13 +8,14 @@ const SLIDESHOW_COUNTER_DIV = document.getElementById('slideshowCounter');
 /** Represents a slideshow modal/overlay that accepts a game controller to navigate */
 export class Slideshow {
   
-  constructor(images, onClose) {
-    this.images = images;
+  constructor(slides, onClose) {
+    this.slides = slides;
     this.onClose = onClose;
 
     this.lastGamepad = { buttons: [], axes: [] };
     this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.curSlide = 0;
+    this.images = [];
   }
 
   handleControllerChange(action) {
@@ -36,14 +37,14 @@ export class Slideshow {
   }
 
   loadSlide() {
-    SLIDESHOW_IMG_DIV.src = this.images[this.curSlide].uri;
-    SLIDESHOW_CAPTION_DIV.innerHTML = this.images[this.curSlide].caption;
-    SLIDESHOW_COUNTER_DIV.innerHTML = `${(this.curSlide + 1)} of ${this.images.length}`;
+    SLIDESHOW_CAPTION_DIV.innerHTML = this.slides[this.curSlide].caption;
+    SLIDESHOW_COUNTER_DIV.innerHTML = `${(this.curSlide + 1)} of ${this.slides.length}`;
+    SLIDESHOW_IMG_DIV.src = this.images[this.curSlide].src;
   }
 
   nextSlide() {
     this.curSlide++;
-    if (this.curSlide >= this.images.length) {
+    if (this.curSlide >= this.slides.length) {
       this.curSlide = 0;
     }
     this.loadSlide();
@@ -52,9 +53,16 @@ export class Slideshow {
   previousSlide() {
     this.curSlide--;
     if (this.curSlide < 0) {
-      this.curSlide = this.images.length - 1;
+      this.curSlide = this.slides.length - 1;
     }
     this.loadSlide();
+  }
+
+  preloadImages() {
+    for (let i = 0; i < this.slides.length; i++) {
+      this.images[i] = new Image();
+      this.images[i].src = this.slides[i].uri;
+    }
   }
 
   cleanup() {
@@ -65,6 +73,7 @@ export class Slideshow {
   }
 
   init() {
+    this.preloadImages()
     this.stepController.init();
     this.loadSlide();
     SLIDESHOW_DIV.classList.remove('hidden');
