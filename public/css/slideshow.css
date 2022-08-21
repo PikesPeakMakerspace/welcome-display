@@ -16,7 +16,7 @@
   align-items: center;
   font-size: 2.4em;
   width: 90%;
-  padding: 0 5% 0.5em 5%;
+  padding: 0 5% 0.25em 5%;
 }
 
 #slideshowLeft,
@@ -52,7 +52,7 @@
 }
 
 #slideshowCaption {
-  padding: 0.5em 5% 0 5%;
+  padding: 0 5% 0.5em 5%;
   font-size: 2.4em;
   line-height: 1.2em;
 }
