@@ -22,6 +22,7 @@ export const MapArea = {
   COMPUTERS_PRINTERS: 'computersPrinters',
   DEDICATED_SPACE_1: 'dedicatedSpace1',
   DEDICATED_SPACE_2: 'dedicatedSpace2',
+  BLACK: 'black', // not really a map area, used to black out external lights for now
 }
 
 // When X area is active and Y gamepad event happens, move to area Z
@@ -166,6 +167,7 @@ export class TravelMap extends Scene {
   }
 
   cleanup() {
+    this.io.emit('mapArea', MapArea.BLACK);
     this.stepController.cleanup();
     this.stepController = null;
 
