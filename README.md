@@ -1,4 +1,4 @@
-# Pikes Peak Makerspace Welcome Display
+# Pikes Peak Makerspace Welcome Display <img src= "https://media.tenor.com/images/2adfe94e69139f3e22623b61d375a7a7/tenor.gif" width= "30" height= "30">
 
 Designed for a vertical screen mounted in a "mall map" frame, this display welcomes visitors and showcases PPM's equipment. The display is targeted towards new guests and visitors of a traveling booth.
 
