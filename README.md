@@ -6,7 +6,7 @@ Designed for a vertical screen mounted in a "mall map" frame, this display welco
 
 No one knows if the developer(s) will get hit by a bus. For that reason, this app is intended as a no-frills, easy-ish to edit, static web app served from Git Hub. In the event this app blows up (gets heavily used, hopefully no sparks flying), do feel free to refactor and add TypeScript, React and other nifty tools. 😃 
 
-### Here the tools and additional software that we are currently using:
+### Here are the tools and additional software that we're currently using:
 
 CodePen, Raspian, BASH, ssh <br>
 Adobe Creative Suite <br>
