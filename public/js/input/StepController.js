@@ -62,6 +62,37 @@ export class StepController {
   }
 
   /**
+   * Convert thumbstick movements into DPAD button presses
+   */
+  thumbstickToButtonPress(gamepad) {
+    // thumbsticks missing: just return what was passed in
+    if (!gamepad.axes[0] || !gamepad.axes[1] || !gamepad.axes[2] || !gamepad.axes[3]) {
+      return gamepad;
+    }
+
+    let newGamePad = {...gamepad};
+
+    // left
+    if ((axes[0] < 0 || axes[2] < 0) && !gamepad.buttons.includes(Gamepad.DPADL)) {
+      newGamePad.buttons.push(Gamepad.DPADL);
+    }
+    //right
+    if ((axes[0] > 0 || axes[2] > 0) && !gamepad.buttons.includes(Gamepad.DPADR)) {
+      newGamePad.buttons.push(Gamepad.DPADR);
+    }
+    //up
+    if ((axes[1] < 0 || axes[3] < 0) && !gamepad.buttons.includes(Gamepad.DPADU)) {
+      newGamePad.buttons.push(Gamepad.DPADU);
+    }
+    //down
+    if ((axes[1] > 0 || axes[3] > 0) && !gamepad.buttons.includes(Gamepad.DPADD)) {
+      newGamePad.buttons.push(Gamepad.DPADD);
+    }
+
+    return newGamePad;
+  }
+
+  /**
    * When pressing multiple buttons at the same time, example: down+right, and letting
    * one of those go like down, reduce duplicates so not to to trigger right button again.
    */
@@ -77,7 +108,8 @@ export class StepController {
    */
   handleControllerChange(gamepad) {
     let action;
-    const reducedButtons = this.cancelExistingButtons(gamepad.buttons, this.lastGamepad.buttons);
+    const thumbsticksAsDpadGamepad = this.thumbstickToButtonPress(gamepad);
+    const reducedButtons = this.cancelExistingButtons(thumbsticksAsDpadGamepad.buttons, this.lastGamepad.buttons);
 
     if (reducedButtons.length > 0) {
       for (const button of reducedButtons) {
@@ -86,7 +118,7 @@ export class StepController {
       }
     }
 
-    this.lastGamepad = gamepad;
+    this.lastGamepad = thumbsticksAsDpadGamepad;
   }
 
   init() {
