@@ -4,9 +4,15 @@ Designed for a vertical screen mounted in a "mall map" frame, this display welco
 
 ## A "Simple" Web App
 
-No one knows if the developer(s) will get hit by a bus. For that reason, this app is intended as a no-frills, easy-ish to edit, static web app served from github. In the event this app blows up (gets heavily used, hopefully no sparks flying), do feel free to refactor and add TypeScript, React and other nifty tools. :D
+No one knows if the developer(s) will get hit by a bus. For that reason, this app is intended as a no-frills, easy-ish to edit, static web app served from Git Hub. In the event this app blows up (gets heavily used, hopefully no sparks flying), do feel free to refactor and add TypeScript, React and other nifty tools. :D
 
-More updates soon™️.
+### Here the tools and additional software that we are currently using:
+
+CodePen, Raspian, BASH, ssh <br>
+Adobe Creative Suite <br>
+https://jsoneditoronline.org/ <br>
+node.js, socket.io <br>
+Visual Studio Code, git, GitHub, Markdown <br>
 
 ## Install Raspberry Pi Desktop
 
@@ -16,7 +22,7 @@ TODO
 
 ### Hide Cursor
 
-Quickly hide cursor after not moving (can't remove from browser alone per (this)[https://stackoverflow.com/a/46868282])
+Quickly hide cursor after not moving (can't remove from browser alone per (this) [https://stackoverflow.com/a/46868282])
 
 ```
 sudo apt-get install unclutter
@@ -40,16 +46,6 @@ https://pimylifeup.com/raspberry-pi-rotate-screen/
 
 TODO
 
-##  
+More updates soon™️.
 
-### Here are some of the tools that we are currently using:
-
-CodePen, Raspian, BASH, ssh
-Adobe Creative Suite
-https://jsoneditoronline.org/
-node.js, socket.io
-
-![](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
-![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white")
-![](https://img.shields.io/badge/Git-bf2c15?style=for-the-badge&logo=git&logoColor=white)
-![](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
+-----
