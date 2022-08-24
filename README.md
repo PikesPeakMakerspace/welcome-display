@@ -16,7 +16,7 @@ Visual Studio Code, git, GitHub, Markdown <br>
 
 ## Install Raspberry Pi Desktop
 
-TODO
+https://www.raspberrypi.com/software/raspberry-pi-desktop/
 
 ## Additional Install Notes
 
