@@ -27,9 +27,19 @@ nano ~/.config/lxsession/LXDE/autostart
 @unclutter -idle 0.1
 ```
 
+### Rotate Raspberry Pi screen
+
+Add the following command to /boot/config.txt to rotate 90 degs CW:
+
+```
+display_hdmi_rotate=1
+```
+https://pimylifeup.com/raspberry-pi-rotate-screen/
+
 ## Install Game Controller Support
 
 TODO
+
 
 ### Here are some of the languages and tools that we are currently working with:
 
