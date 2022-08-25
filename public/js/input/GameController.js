@@ -103,19 +103,10 @@ export class GameController {
 
       // handle significant drifting values from axes
       const roundedAxes = controller.axes.map(axis => Math.round(axis * 10) / 10);
-      if (!numberArraysMatch([...roundedAxes], [...this.oldAxes])) {
-        // only populate axes on first change detection
-        if (this.oldAxes) {
-          change = true;
-        }
-        this.oldAxes = roundedAxes;
-      }
 
-      // TEMP
-      if (change && !this.firstChange) {
-        this.firstChange = true;
-        requestAnimationFrame(this.statusLoop.bind(this));
-        return;
+      if (!numberArraysMatch([...roundedAxes], [...this.oldAxes])) {
+        change = true;
+        this.oldAxes = roundedAxes;
       }
 
       if (change) {

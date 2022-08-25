@@ -110,7 +110,6 @@ export class TravelMap extends Scene {
     // track last gamepad interaction for change detection
     this.lastGamepad = { buttons: [], axes: [] };
     this.idleTimeout = {}
-    // TODO: is it dom object?:
     this.mapSvg = '';
     // don't track game controller interactions when slideshow is active
     this.slideshowActive = false;
@@ -141,7 +140,6 @@ export class TravelMap extends Scene {
     EQUIPMENT_DIV.innerHTML = this.mapData[mapArea].equipment;
     // Tell server which area to set matching LED colors!
     this.io.emit('mapArea', mapArea)
-    // TODO: Move a gamepad cursor over the area
   }
 
   setSocketConnection() {
@@ -168,7 +166,7 @@ export class TravelMap extends Scene {
       const textAsDom = document.createRange().createContextualFragment(svg);
       TRAVEL_MAP_DIV.appendChild(textAsDom);
       this.highlightMapArea(this.activeMapArea);
-      // TODO: listen to map events
+      // TODO: listen to map mouse events
     } catch(err) {
       console.error(err);
     }
@@ -248,12 +246,12 @@ export class TravelMap extends Scene {
   }
 
   async init() {
-    this.stepController.init();
-    this.setSocketConnection()
+    this.setSocketConnection();
 
     try {
       this.mapData = await this.loadMapData();
       await this.loadMap();
+      this.stepController.init();
       this.resetIdleTimeout();
       TRAVEL_MAP_SCENE_DIV.classList.remove('hidden');
     } catch(err) {
