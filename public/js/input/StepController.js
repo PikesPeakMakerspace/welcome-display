@@ -66,26 +66,26 @@ export class StepController {
    */
   thumbstickToButtonPress(gamepad) {
     // thumbsticks missing: just return what was passed in
-    if (!gamepad.axes[0] || !gamepad.axes[1] || !gamepad.axes[2] || !gamepad.axes[3]) {
+    if (isNaN(gamepad.axes[0]) || isNaN(gamepad.axes[1]) || isNaN(gamepad.axes[2]) || isNaN(gamepad.axes[3])) {
       return gamepad;
     }
 
     let newGamePad = {...gamepad};
 
     // left
-    if ((axes[0] < 0 || axes[2] < 0) && !gamepad.buttons.includes(Gamepad.DPADL)) {
+    if ((Math.round(gamepad.axes[0]) < 0 || Math.round(gamepad.axes[2]) < 0) && !gamepad.buttons.includes(Gamepad.DPADL)) {
       newGamePad.buttons.push(Gamepad.DPADL);
     }
-    //right
-    if ((axes[0] > 0 || axes[2] > 0) && !gamepad.buttons.includes(Gamepad.DPADR)) {
+    // right
+    if ((Math.round(gamepad.axes[0]) > 0 || Math.round(gamepad.axes[2]) > 0) && !gamepad.buttons.includes(Gamepad.DPADR)) {
       newGamePad.buttons.push(Gamepad.DPADR);
     }
-    //up
-    if ((axes[1] < 0 || axes[3] < 0) && !gamepad.buttons.includes(Gamepad.DPADU)) {
+    // up
+    if ((Math.round(gamepad.axes[1]) < 0 || Math.round(gamepad.axes[3]) < 0) && !gamepad.buttons.includes(Gamepad.DPADU)) {
       newGamePad.buttons.push(Gamepad.DPADU);
     }
-    //down
-    if ((axes[1] > 0 || axes[3] > 0) && !gamepad.buttons.includes(Gamepad.DPADD)) {
+    // down
+    if ((Math.round(gamepad.axes[1]) > 0 || Math.round(gamepad.axes[3]) > 0) && !gamepad.buttons.includes(Gamepad.DPADD)) {
       newGamePad.buttons.push(Gamepad.DPADD);
     }
 
