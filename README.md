@@ -13,6 +13,7 @@ Adobe Creative Suite <br>
 https://jsoneditoronline.org/ <br>
 node.js, socket.io <br>
 Visual Studio Code, git, GitHub, Markdown <br>
+Trello, and especially Slack <br>
 
 ## Install Raspberry Pi Desktop
 
