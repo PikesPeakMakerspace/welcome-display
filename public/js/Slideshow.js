@@ -1,4 +1,5 @@
 import { StepController, StepAction } from './input/StepController.js';
+import { UiSound, Sounds } from './UiSound.js';
 
 const SLIDESHOW_DIV = document.getElementById('slideshow');
 const SLIDESHOW_IMG_DIV = document.getElementById('slideshowImg');
@@ -19,6 +20,7 @@ export class Slideshow {
     this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.curSlide = 0;
     this.images = [];
+    this.sound = {};
     this.previousClicked = this.previousMouseClickHandler.bind(this);
     this.nextClicked = this.nextMouseClickHandler.bind(this);
     this.closeClicked = this.closeMouseClickHandler.bind(this);
@@ -49,6 +51,7 @@ export class Slideshow {
   }
 
   nextSlide() {
+    this.sound.play(Sounds.NEXT);
     this.curSlide++;
     if (this.curSlide >= this.slides.length) {
       this.curSlide = 0;
@@ -57,6 +60,7 @@ export class Slideshow {
   }
 
   previousSlide() {
+    this.sound.play(Sounds.NEXT);
     this.curSlide--;
     if (this.curSlide < 0) {
       this.curSlide = this.slides.length - 1;
@@ -96,6 +100,7 @@ export class Slideshow {
   }
 
   cleanup() {
+    this.sound.play(Sounds.CLOSE);
     this.removeMouseEventListers();
     this.stepController.cleanup();
     this.stepController = null;
@@ -104,6 +109,7 @@ export class Slideshow {
   }
 
   init() {
+    this.sound = new UiSound();
     this.preloadImages()
     this.stepController.init();
     this.loadSlide();
