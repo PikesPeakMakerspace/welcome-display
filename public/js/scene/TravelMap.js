@@ -2,6 +2,7 @@ import { Scene } from './Scene.js';
 import { StepController, StepAction } from '../input/StepController.js';
 import { io } from '../socket.io.esm.min.js';
 import { Slideshow } from '../Slideshow.js';
+import { UiSound, Sounds } from '../UiSound.js';
 
 const TRAVEL_MAP_SCENE_DIV = document.getElementById('travelMapScene');
 const TRAVEL_MAP_DIV = document.getElementById('travelMap');
@@ -118,6 +119,7 @@ export class TravelMap extends Scene {
     this.mapData = [];
     // socket.io connection used to send selected area color back to server, to send to Pi GPIO pins
     this.io = {};
+    this.sound = {};
   }
 
   clearMapAreaHighlights() {
@@ -132,6 +134,7 @@ export class TravelMap extends Scene {
 
   highlightMapArea(mapArea) {
     this.clearMapAreaHighlights();
+    this.sound.play(Sounds.NEXT);
     const areaElement = document.getElementById(mapArea);
     if (areaElement && areaElement.classList) {
       areaElement.classList.add('active')
@@ -213,12 +216,14 @@ export class TravelMap extends Scene {
   }
 
   startSlideshow() {
+    this.sound.play(Sounds.OPEN);
     this.slideshowActive = true;
     this.slideshow = new Slideshow(this.mapData[this.activeMapArea].gallery, this.closeSlideshow.bind(this));
     this.slideshow.init();
   }
 
   closeSlideshow() {
+    this.sound.play(Sounds.CLOSE);
     if (this.slideshow) {
       this.slideshow = null;
       this.slideshowActive = false;
@@ -246,6 +251,7 @@ export class TravelMap extends Scene {
   }
 
   async init() {
+    this.sound = new UiSound();
     this.setSocketConnection();
 
     try {
