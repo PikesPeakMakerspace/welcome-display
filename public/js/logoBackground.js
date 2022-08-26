@@ -63,7 +63,7 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
 
     function loop() {
       if (!window.animateBackground) {
-        requestAnimFrame(loop);
+        // requestAnimFrame(loop);
         return;
       }
 
@@ -73,7 +73,7 @@ const LOGO_BACKGROUND = document.getElementById("logoBackground");
         context.clearRect(0, 0, canvasWid, canvasHig);
         myDelaunayDataSet.drawLight();
       }
-      requestAnimFrame(loop);
+      // requestAnimFrame(loop);
     }
 
     loop();
