@@ -1,15 +1,11 @@
 {
   "printers3d": {
     "title": "3D Printing",
-    "equipment": "Filament printers from Ender, Lulzbot, Monoprice and PRUSA. Resin printer from Anycubic. Filament dryers resin curing boxes and some materials available!",
+    "equipment": "Filament printers from PRUSA, Lulzbot, Monoprice and Ender. Resin printer from Anycubic. Filament dryers resin curing boxes and some materials available!",
     "gallery": [
       {
         "uri": "img/gallery/printers3d/3D_Printing_Area2.jpg",
         "caption": "3D Printing Area"
-      },
-      {
-        "uri": "img/gallery/printers3d/MR_T.jpg",
-        "caption": "MR. T Lulzbot 3D Printer"
       },
       {
         "uri": "img/gallery/printers3d/3D_printer_HAYWIRE.jpg",
@@ -18,6 +14,18 @@
       {
         "uri": "img/gallery/printers3d/3D_printer_MEDUSA.jpg",
         "caption": "MEDUSA 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3d/MR_T.jpg",
+        "caption": "MR. T Lulzbot 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3d/Ender_3_Printer.jpg",
+        "caption": "Ender-3 Pro 3D Printer"
+      },
+      {
+        "uri": "img/gallery/printers3d/Monoprice.jpg",
+        "caption": "Monoprice 3D Printer"
       },
       {
         "uri": "img/gallery/printers3d/ANYCUBIC_3D_Printer.jpg",
@@ -30,10 +38,6 @@
       {
         "uri": "img/gallery/printers3d/Lion_3D_Printed.jpg",
         "caption": "3D Printed Lion"
-      },
-      {
-        "uri": "img/gallery/printers3d/Monoprice.jpg",
-        "caption": "Monoprice 3D Printer"
       },
       {
         "uri": "img/gallery/printers3d/Tesla_Prusa.jpg",
@@ -72,8 +76,16 @@
     "equipment": "Windows 10 Design Workstations (2) with Adobe Creative Cloud software and much more!",
     "gallery": [
       {
-        "uri": "img/gallery/computersPrinters/Design_Workstation_Area.jpg",
-        "caption": "Computer Area"
+        "uri": "img/gallery/computersPrinters/Design_Workstation_1.jpg",
+        "caption": "Design Workstation 1"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Design_Workstation_2.jpg",
+        "caption": "Design Workstation 2"
+      },
+      {
+        "uri": "img/gallery/computersPrinters/Ubuntu_workstation.jpg",
+        "caption": "Ubuntu Workstation"
       },
       {
         "uri": "img/gallery/computersPrinters/Canon_G7020.jpg",
@@ -81,15 +93,11 @@
       },
       {
         "uri": "img/gallery/computersPrinters/Hp_600_printer.jpg",
-        "caption": "HP BW Printer"
+        "caption": "HP High Speed Printer"
       },
       {
         "uri": "img/gallery/computersPrinters/HP_Designjet_510.jpg",
         "caption": "HP Large Format Printer"
-      },
-      {
-        "uri": "img/gallery/computersPrinters/Ubuntu_workstation.jpg",
-        "caption": "Ubuntu Workstation"
       },
       {
         "uri": "img/gallery/computersPrinters/Vinyl_Cutting_Workstation.jpg",
@@ -126,16 +134,20 @@
         "caption": "Electronics Area"
       },
       {
-        "uri": "img/gallery/electronicsArea/HAKKO_soldering_station.jpg",
-        "caption": "Soldering Workstation"
-      },
-      {
         "uri": "img/gallery/electronicsArea/Multimeter_hp_3478A.jpg",
         "caption": "HP Multimeter"
       },
       {
         "uri": "img/gallery/electronicsArea/Protek_DC_Power_Supply.jpg",
         "caption": "DC Power Supply"
+      },
+      {
+        "uri": "img/gallery/electronicsArea/HAKKO_soldering_station.jpg",
+        "caption": "Soldering Workstation"
+      },
+      {
+        "uri": "img/gallery/electronicsArea/Solder_Reflow_Oven.jpg",
+        "caption": "Solder Reflow Oven"
       }
     ]
   },
@@ -152,16 +164,8 @@
         "caption": "BOSS LASER Engraver"
       },
       {
-        "uri": "img/gallery/laserEngravers/Inspirational_Signs.jpg",
-        "caption": "Inspirational Signs"
-      },
-      {
         "uri": "img/gallery/laserEngravers/Laser_cut_wooden_clock.jpg",
         "caption": "Laser Cut Clock"
-      },
-      {
-        "uri": "img/gallery/laserEngravers/Minnesota_Nice.jpg",
-        "caption": "Laser Cut Artwork"
       },
       {
         "uri": "img/gallery/laserEngravers/Round_PCB_PPM_clock.jpg",
@@ -170,6 +174,14 @@
       {
         "uri": "img/gallery/laserEngravers/Zing_LASER.jpg",
         "caption": "Zing LASER"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Inspirational_Signs.jpg",
+        "caption": "Inspirational Signs"
+      },
+      {
+        "uri": "img/gallery/laserEngravers/Minnesota_Nice.jpg",
+        "caption": "Laser Cut Artwork"
       }
     ]
   },
@@ -188,10 +200,6 @@
       {
         "uri": "img/gallery/metalShop/Evolution_Metal_Chop_Saw.jpg",
         "caption": "Evolution Metal Chop Saw"
-      },
-      {
-        "uri": "img/gallery/metalShop/IR_Thermometer.jpg",
-        "caption": "IR Thermometer"
       },
       {
         "uri": "img/gallery/metalShop/Media_blaster.jpg",
@@ -216,12 +224,8 @@
     "equipment": "Make use of our Kitchen, Library, Photography Area and other shared resources at Pikes Peak Makerspace!",
     "gallery": [
       {
-        "uri": "img/gallery/multiUse/Photography_Area.jpg",
-        "caption": "Photography Area"
-      },
-      {
-        "uri": "img/gallery/multiUse/Assembly_Table.jpg",
-        "caption": "Assembly Table"
+        "uri": "img/gallery/multiUse/PPM_outdoor_window_sign.jpg",
+        "caption": "Outdoor Vinyl Sign"
       },
       {
         "uri": "img/gallery/multiUse/Building_sign_1.jpg",
@@ -236,12 +240,12 @@
         "caption": "Yet Another Building Sign"
       },
       {
-        "uri": "img/gallery/multiUse/PPM_Library.jpg",
-        "caption": "PPM Library"
+        "uri": "img/gallery/multiUse/Photography_Area.jpg",
+        "caption": "Photography Area"
       },
       {
-        "uri": "img/gallery/multiUse/PPM_outdoor_window_sign.jpg",
-        "caption": "Outdoor Vinyl Sign"
+        "uri": "img/gallery/multiUse/Assembly_Table.jpg",
+        "caption": "Assembly Table"
       }
     ]
   },
@@ -252,6 +256,10 @@
       {
         "uri": "img/gallery/woodShop/Wood_Shop_Area.jpg",
         "caption": "Wood Shop Area"
+      },
+      {
+        "uri": "img/gallery/Drill_Press.jpg",
+        "caption": "Drill Press"
       },
       {
         "uri": "img/gallery/woodShop/Festool_Dust_Extractor.jpg",
@@ -266,8 +274,8 @@
         "caption": "Festool Track Saw"
       },
       {
-        "uri": "img/gallery/woodShop/3520B_POWERMATIC_lathe.jpg",
-        "caption": "POWERMATIC Lathe"
+        "uri": "img/gallery/woodShop/POWERMATIC_Table_Saw.jpg",
+        "caption": "POWERMATIC Table Saw"
       },
       {
         "uri": "img/gallery/woodShop/POWERMATIC_bandsaw_big.jpg",
@@ -275,15 +283,15 @@
       },
       {
         "uri": "img/gallery/woodShop/POWERMATIC_planer.jpg",
-        "caption": "POWERMATIC PLANER"
+        "caption": "POWERMATIC Planer"
       },
       {
-        "uri": "img/gallery/woodShop/PM_66.jpg",
-        "caption": "POWERMATIC 66 Table Saw"
+        "uri": "img/gallery/woodShop/POWERMATIC_lathe.jpg",
+        "caption": "POWERMATIC Lathe"
       },
       {
-        "uri": "img/gallery/woodShop/AIR_NAILER.jpg",
-        "caption": "Air Nailer"
+        "uri": "img/gallery/woodShop/Lathe_tools.jpg",
+        "caption": "Lathe Tools"
       },
       {
         "uri": "img/gallery/woodShop/BOSCH_jigsaw_1590EVS.jpg",
@@ -306,10 +314,6 @@
         "caption": "JET Jointer"
       },
       {
-        "uri": "img/gallery/woodShop/Lathe_tools.jpg",
-        "caption": "Lathe Tools"
-      },
-      {
         "uri": "img/gallery/woodShop/Makita_Circular_Saw.jpg",
         "caption": "Makita Circular Saw"
       },
@@ -318,20 +322,12 @@
         "caption": "Miter Saw"
       },
       {
-        "uri": "img/gallery/woodShop/Sander_Mouse.jpg",
-        "caption": "Mouse Sander"
+        "uri": "img/gallery/woodShop/Sanding_Workstation.jpg",
+        "caption": "Sanding Workstation"
       },
       {
-        "uri": "img/gallery/woodShop/Sander_PORTER-CABLE.jpg",
-        "caption": "PORTER-CABLE Sander"
-      },
-      {
-        "uri": "img/gallery/woodShop/Sander_RYOBI.jpg",
-        "caption": "RYOBI Sander"
-      },
-      {
-        "uri": "img/gallery/woodShop/WORK_SHARP_sharpener.jpg",
-        "caption": "WORK SHARP Sharpener"
+        "uri": "img/gallery/woodShop/Clamp_Storage_Area.jpg",
+        "caption": "Clamp Storage Area"
       }
     ]
   }
