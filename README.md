@@ -9,10 +9,11 @@ No one knows if the developer(s) will get hit by a bus. For that reason, this ap
 ### Here are the tools and additional software that we're currently using:
 
 CodePen, Raspian, BASH, ssh <br>
-Adobe Creative Suite <br>
+Adobe Illustrator and Photoshop <br>
 https://jsoneditoronline.org/ <br>
 node.js, socket.io <br>
-Visual Studio Code, git, GitHub, Markdown <br>
+Visual Studio Code, Arduino IDE <br>
+git, GitHub, Git Bash, Markdown <br>
 Trello, and especially Slack <br>
 
 ## Install Raspberry Pi Desktop
