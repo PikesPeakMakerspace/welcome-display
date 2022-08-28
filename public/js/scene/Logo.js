@@ -14,7 +14,7 @@ export class Logo extends Scene {
     super();
     this.onSceneEnd = onSceneEnd;
 
-    this.stepController = new StepController(this.handleControllerChange.bind(this));
+    this.stepController = new StepController(this.handleControllerChange.bind(this), false);
   }
 
   cleanup() {

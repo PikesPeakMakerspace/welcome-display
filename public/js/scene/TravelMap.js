@@ -216,18 +216,24 @@ export class TravelMap extends Scene {
   }
 
   startSlideshow() {
-    this.sound.play(Sounds.OPEN);
-    this.slideshowActive = true;
-    this.slideshow = new Slideshow(this.mapData[this.activeMapArea].gallery, this.closeSlideshow.bind(this));
-    this.slideshow.init();
+    if (!this.slideshowActive) {
+      this.sound.play(Sounds.OPEN);
+      this.slideshowActive = true;
+      this.slideshow = new Slideshow(this.mapData[this.activeMapArea].gallery, this.closeSlideshow.bind(this));
+      this.slideshow.init();
+    }
   }
 
   closeSlideshow() {
     this.sound.play(Sounds.CLOSE);
     if (this.slideshow) {
       this.slideshow = null;
-      this.slideshowActive = false;
     }
+
+    // debounce active status to prevent rapid open again
+    setTimeout(() => {
+      this.slideshowActive = false;
+    }, 250);
   }
 
   handleControllerChange(action) {

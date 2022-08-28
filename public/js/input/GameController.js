@@ -30,12 +30,14 @@ export class GameController {
   /**
    * Create the game controller.
    * @param {function} onButtonChange - Callback for when button states change
-   * @param {function} onAxesChange - Callback for when thumbstick states change
+   * @param {function} ignoreFirstButton - Prevent overly quick button pressing on init
    */
   constructor(
     onControllerChange = (buttonsAndAxes) => { },
+    ignoreFirstButton = true,
   ) {
     this.onControllerChange = onControllerChange;
+    this.ignoreFirstButton = ignoreFirstButton;
 
     this.controllers = [];
     this.oldButtons = [];
@@ -43,8 +45,6 @@ export class GameController {
     this.scanGamepadsTimer = '';
     this.connectListener = {};
     this.disconnectListener = {};
-    // TEMP: Current game controller implementation seems a bit finicky. Block first
-    // change event on init for now.
     this.firstChange = false;
   }
 
@@ -107,6 +107,12 @@ export class GameController {
       if (!numberArraysMatch([...roundedAxes], [...this.oldAxes])) {
         change = true;
         this.oldAxes = roundedAxes;
+      }
+
+      if (change && this.ignoreFirstButton && !this.firstChange) { 
+        this.firstChange = true;
+        requestAnimationFrame(this.statusLoop.bind(this));
+        return;
       }
 
       if (change) {
