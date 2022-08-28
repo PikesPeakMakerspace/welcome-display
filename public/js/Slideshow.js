@@ -16,7 +16,6 @@ export class Slideshow {
     this.slides = slides;
     this.onClose = onClose;
 
-    this.lastGamepad = { buttons: [], axes: [] };
     this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.curSlide = 0;
     this.images = [];
