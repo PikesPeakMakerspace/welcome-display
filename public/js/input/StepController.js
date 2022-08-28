@@ -38,11 +38,14 @@ const STEP_ACTION_BUTTON_MAP = {
 }
 
 export class StepController {
-  constructor(onStepAction) {
+  constructor(
+    onStepAction,
+    ignoreFirstButton = true,
+  ) {
     this.onStepAction = onStepAction;
     
     this.gameControllers = [
-      new GameController(this.handleControllerChange.bind(this)),
+      new GameController(this.handleControllerChange.bind(this), ignoreFirstButton),
       new KeyboardController(this.handleControllerChange.bind(this)),
     ];
     this.lastGamepad = { buttons: [], axes: [] };
