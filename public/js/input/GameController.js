@@ -109,7 +109,7 @@ export class GameController {
         this.oldAxes = roundedAxes;
       }
 
-      if (change && this.ignoreFirstButton && !this.firstChange) { 
+      if (change && this.ignoreFirstButton && !this.firstChange) {
         this.firstChange = true;
         requestAnimationFrame(this.statusLoop.bind(this));
         return;
