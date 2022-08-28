@@ -1,6 +1,6 @@
 
-const AUDIO_MP3_PATH = '../../audio/blips.mp3';
-const AUDIO_WAV_PATH = '../../audio/blips.wav';
+const AUDIO_MP3_PATH = '../../audio/sounds.mp3';
+const AUDIO_WAV_PATH = '../../audio/sounds.wav';
 
 /**
  * enum for sounds
@@ -15,9 +15,9 @@ export const Sounds = {
  * sound mapping
  */
 const soundRanges = {
-  [Sounds.NEXT]: [0, 38],
-  [Sounds.OPEN]: [39, 60],
-  [Sounds.CLOSE]: [78, 122],
+  [Sounds.NEXT]: [3000, 500],
+  [Sounds.OPEN]: [1000, 500],
+  [Sounds.CLOSE]: [2000, 500],
 }
 
 /**
@@ -35,11 +35,8 @@ export class UiSound {
   _loadSound() {
     this.sound = new Howl({
       src: [AUDIO_MP3_PATH, AUDIO_WAV_PATH],
-      sprite: {
-        next: [0, 38],
-        open: [39, 60],
-        close: [78, 122],
-      }
+      sprite: soundRanges,
+      volume: 0.5,
     });
   }
 
