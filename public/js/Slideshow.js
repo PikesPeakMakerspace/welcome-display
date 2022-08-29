@@ -12,10 +12,15 @@ const SLIDESHOW_CLOSE_DIV = document.getElementById('slideshowClose');
 /** Represents a slideshow modal/overlay that accepts a game controller to navigate */
 export class Slideshow {
   
-  constructor(slides, onClose) {
+  constructor(slides,
+    onClose,
+    idleTimeoutMilliseconds = 60000,
+  ) {
     this.slides = slides;
     this.onClose = onClose;
+    this.idleTimeoutMilliseconds = idleTimeoutMilliseconds;
 
+    this.idleTimeout = {}
     this.stepController = new StepController(this.handleControllerChange.bind(this));
     this.curSlide = 0;
     this.images = [];
@@ -25,7 +30,18 @@ export class Slideshow {
     this.closeClicked = this.closeMouseClickHandler.bind(this);
   }
 
+  resetIdleTimeout() {
+    if (this.idleTimeout) {
+      clearTimeout(this.idleTimeout);
+    }
+    
+    // End scene and move to something else like the the logo screensaver after idle too long
+    this.idleTimeout = setTimeout(this.cleanup.bind(this), this.idleTimeoutMilliseconds);
+  }
+
   handleControllerChange(action) {
+    this.resetIdleTimeout();
+    
     // accept select/deselect buttons to exit slideshow for now
     if (action === StepAction.SELECT || action === StepAction.DISMISS) {
       this.cleanup();
@@ -114,5 +130,6 @@ export class Slideshow {
     this.loadSlide();
     this.addMouseEventListers();
     SLIDESHOW_DIV.classList.remove('hidden');
+    this.resetIdleTimeout();
   }
 }
