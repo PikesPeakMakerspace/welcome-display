@@ -1,5 +1,6 @@
 import { Scene } from './Scene.js';
-import { StepController, StepAction } from '../input/StepController.js';
+import { StepController } from '../input/StepController.js';
+import { WarpSpeed } from '../WarpSpeed/WarpSpeed.js';
 
 const LOGO_DIV = document.getElementById('logoScene');
 
@@ -15,6 +16,7 @@ export class Logo extends Scene {
     this.onSceneEnd = onSceneEnd;
 
     this.stepController = new StepController(this.handleControllerChange.bind(this), false);
+    this.warpSpeed;
   }
 
   cleanup() {
@@ -36,9 +38,8 @@ export class Logo extends Scene {
 
   async init() {
     this.stepController.init();
-
+    this.warpSpeed = new WarpSpeed();
+    this.warpSpeed.init();
     LOGO_DIV.classList.remove('hidden');
-    // TODO: Make a nicer particle effect thing that's not copied from Code Pen:
-    window.animateBackground = true;
   }
 }
