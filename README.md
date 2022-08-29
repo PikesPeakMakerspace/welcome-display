@@ -8,6 +8,7 @@ No one knows if the developer(s) will get hit by a bus. For that reason, this ap
 
 ### Here are the tools and additional software that we're currently using:
 
+balenaEtcher <br>
 CodePen, Raspian, BASH, ssh <br>
 Adobe Illustrator and Photoshop <br>
 https://jsoneditoronline.org/ <br>
