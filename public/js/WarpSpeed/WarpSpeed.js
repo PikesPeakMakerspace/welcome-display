@@ -11,7 +11,7 @@ export class WarpSpeed {
   constructor
   (
     warpSpeedAmt = 0.005,
-    starCount = 50,
+    starCount = 20,
     throttleFrames = 0,
   ) {
     this.warpSpeedAmt = warpSpeedAmt;
@@ -67,7 +67,8 @@ export class WarpSpeed {
     }
 
     // apply fade
-    this.ctx.fillStyle = 'rgba(0,0,0,0.05)';
+    const fadeAmt = 0.01 + (Math.random() * 0.12);
+    this.ctx.fillStyle = `rgba(0,0,0,${fadeAmt})`;
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     
     for (const star of this.stars) {

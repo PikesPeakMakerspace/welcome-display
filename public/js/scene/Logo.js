@@ -37,7 +37,7 @@ export class Logo extends Scene {
 
   async init() {
     this.stepController.init();
-    this.warpSpeed = new WarpSpeed(0.01, 50, 15);
+    this.warpSpeed = new WarpSpeed(0.01, 20, 5);
     this.warpSpeed.init();
     LOGO_DIV.classList.remove('hidden');
   }
