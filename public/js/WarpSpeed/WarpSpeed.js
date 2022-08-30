@@ -12,15 +12,18 @@ export class WarpSpeed {
   (
     warpSpeedAmt = 0.005,
     starCount = 50,
+    throttleFrames = 0,
   ) {
     this.warpSpeedAmt = warpSpeedAmt;
     this.stars = [...Array(starCount)];
+    this.throttleFrames = throttleFrames;
 
     this.canvas = BACKGROUND_CANVAS;
     this.canvas.width = window.innerWidth / 4;
     this.canvas.height = window.innerHeight / 4;
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d', { alpha: false });
     this.warpActive = false;
+    this.throttleFrame = 0;
   }
 
   createStars() {
@@ -41,18 +44,35 @@ export class WarpSpeed {
     this.ctx.clearRect(0, 0, this.window.innerWidth, this.window.innerHeight);
   }
 
+  throttleAnimation() {
+    if (this.throttleFrames) {
+      if (this.throttleFrame < this.throttleFrames) {
+        this.throttleFrame++;
+        return true;
+      }
+      this.throttleFrame = 0;
+    }
+    return false;
+  }
+
   draw() {
     if (!this.warpActive) {
       window.requestAnimationFrame(this.draw.bind(this));
       return;
     }
 
-    this.ctx.fillStyle = 'rgba(0,0,0,0.1)';
+    if (this.throttleAnimation()) {
+      window.requestAnimationFrame(this.draw.bind(this));
+      return;
+    }
+
+    // apply fade
+    this.ctx.fillStyle = 'rgba(0,0,0,0.05)';
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     
     for (const star of this.stars) {
       this.ctx.fillStyle = 'rgb(255,105,0)';
-      this.ctx.fillRect(star.posX, star.posY, star.color / 128, star.color / 128);
+      this.ctx.fillRect(Math.floor(star.posX), Math.floor(star.posY), Math.floor(star.color / 80), Math.floor(star.color / 80));
       star.updatePos();
     }
     
