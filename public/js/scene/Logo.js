@@ -22,10 +22,9 @@ export class Logo extends Scene {
   cleanup() {
     this.stepController.cleanup();
     this.stepController = null;
+    this.warpSpeed.cleanup();
 
     LOGO_DIV.classList.add('hidden');
-
-    window.animateBackground = false;
   }
 
   /**
