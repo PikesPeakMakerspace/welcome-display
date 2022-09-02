@@ -41,11 +41,12 @@
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 CRGB leds[NUM_LEDS];
+#define UPDATES_PER_SECOND 100
+#define CHASE_INDEX 10
 
 bool animate = false;
 int animateIndex = 1;
-
-#define UPDATES_PER_SECOND 100
+int animateChaseInt = 0;
 
 CRGBPalette16 currentPalette;   // this can be modified to make animated light shows. For now, it's static
 TBlendType    currentBlending;  // currently, just NOBLEND
@@ -67,24 +68,18 @@ void setup() {
 void loop()
 {
   uint8_t pfVal = 0;            // temp var for PORTF
-  ChangePalettePeriodically();
   if (animate == true) {
-    pfVal = animateIndex;
-    if ((PINF & 0xf0) >> 4 != 10) {
-      animate = false;
-    }
+    animateLights();
   } else {
     pfVal = (PINF & 0xf0) >> 4;   // move high nibble to low nibble
     if (pfVal == 10) {
       animate = true;
     }
+    FillLEDsFromPaletteColors(pfVal*16);  // use whatever the PORTF[7:4] 4 bit value is as our offset to set our LEDs from palette
+                                          // multiply by 16 to get true colors we set in palette
   }
-
-  FillLEDsFromPaletteColors(pfVal*16);  // use whatever the PORTF[7:4] 4 bit value is as our offset to set our LEDs from palette
-                                        // multiply by 16 to get true colors we set in palette
-  
   FastLED.show();     // update LED strand
-  FastLED.delay(250); // delay 250ms. FastLed.delay() delays while also refreshing LED strand
+  FastLED.delay(50); // delay 250ms. FastLed.delay() delays while also refreshing LED strand
 }
 
 // Fills all the LED values from whatever index in our palette
@@ -115,6 +110,36 @@ void ChangePalettePeriodically()
       }
     }
   }
+}
+
+void allLightsOn() {
+  
+}
+
+void animateLights()
+{
+  uint8_t bness = 255;
+  // disable animation if pin values not set to "chase"
+  if ((PINF & 0xf0) >> 4 != CHASE_INDEX) {
+    allLightsOn();
+    animate = false;
+  }
+
+  for (int i = 0; i < NUM_LEDS; i++) {
+    if (i % 8 == animateChaseInt) {
+      leds[i] = ColorFromPalette(currentPalette, animateIndex*16, bness, currentBlending);
+      leds[(i+1)] = ColorFromPalette(currentPalette, animateIndex*16, bness, currentBlending);
+      leds[(i+2)] = CRGB::Black;
+    }
+  }
+
+  animateChaseInt = animateChaseInt + 1;
+  if (animateChaseInt >= 8) {
+    animateChaseInt = 0;
+  }
+  
+  
+  ChangePalettePeriodically();
 }
 
 // This configures our currentPalette for our specific colors
