@@ -227,7 +227,6 @@ export class TravelMap extends Scene {
   }
 
   closeSlideshow() {
-    this.sound.play(Sounds.CLOSE);
     if (this.slideshow) {
       this.slideshow = null;
     }
