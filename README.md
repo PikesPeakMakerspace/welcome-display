@@ -1,28 +1,43 @@
 # Pikes Peak Makerspace Welcome Display <img src= "https://media.tenor.com/images/2adfe94e69139f3e22623b61d375a7a7/tenor.gif" width= "30" height= "30">
 
-Designed for a vertical screen mounted in a "mall map" frame, this display welcomes visitors and showcases PPM's equipment. The display is targeted towards new guests and visitors of a traveling booth.
+This Raspberry Pi and Teensy/Arduino powered display welcomes Pikes Peak Makerspace visitors, showcasing a map tour of PPM and its equipment. The display is targeted towards new guests and visitors of a traveling booth. It uses an XBox game controller for navigation for added fun.
 
-## A "Simple" Web App
+On boot, the latest version of the app is pulled into the Pi from GitHub if online, followed by launching the app. It also runs offline when traveling. The app UI is able to send signals to the included Node server via socket.io, instructing the server to send pin signals to the Teensy/Arduino board. This adds an additional light show outside of the screen.
 
-No one knows if the developer(s) will get hit by a bus. For that reason, this app is intended as a no-frills, easy-ish to edit, static web app served from Git Hub. In the event this app blows up (gets heavily used, hopefully no sparks flying), do feel free to refactor and add TypeScript, React and other nifty tools. 😃 
+Vanilla JavaScript controls most of the app and server. The intention was to make it accessible for new contributors (contributions always welcome!)
 
-### Here are the tools and additional software that we're currently using:
+## A Fun Volunteer Project
 
-balenaEtcher <br>
-CodePen, Raspian, BASH, ssh <br>
-node.js, socket.io <br>
-Geany, Chrome Developer tools <br>
-Adobe Illustrator and Photoshop <br>
-https://jsoneditoronline.org/ <br>
-Visual Studio Code, Arduino IDE <br>
-git, GitHub, Git Bash, Markdown <br>
-Trello, and especially Slack <br>
+Before:
+![donated mall map display frame looking for volunteer time](https://github.com/PikesPeakMakerspace/welcome-display/blob/main/public/img/docs/before.jpg)
+
+After:
+![welcome kiosk after contributions from several amazing people](https://github.com/PikesPeakMakerspace/welcome-display/blob/main/public/img/docs/after.jpg)
+
+Thanks to all those who donated time, code, hardware, design, sound, testing and more at PPM! This came together quickly thanks to you.
+
+### Contributors
+
+Ben S,
+Chris M,
+Chris S,
+Drew J,
+Greg B,
+Joey C,
+John N,
+Les F,
+Lisa M,
+Marvin H,
+Mathew P,
+Nate R,
+Pavan D,
+Ross H,
+Trevor B,
+Warren J.
 
 ## Install Raspberry Pi Desktop
 
 https://www.raspberrypi.com/software/raspberry-pi-desktop/
-
-## Additional Install Notes
 
 ### Hide Cursor
 
@@ -46,10 +61,20 @@ display_hdmi_rotate=1
 ```
 https://pimylifeup.com/raspberry-pi-rotate-screen/
 
-## Install Game Controller Support
+### Launch App After Loading Desktop
 
 TODO
 
-More updates soon™️.
+## Additional Tools
 
------
+Here are the tools and additional software that we're currently using:
+
+balenaEtcher
+CodePen, Raspian, BASH, ssh
+node.js, socket.io
+Geany, Chrome Developer tools
+Adobe Illustrator and Photoshop
+https://jsoneditoronline.org/
+Visual Studio Code, Arduino IDE
+git, GitHub, Git Bash, Markdown
+Trello, and especially Slack
