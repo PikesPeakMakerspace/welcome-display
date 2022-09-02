@@ -28,7 +28,8 @@ export const MapArea = {
   COMPUTERS_PRINTERS: 'computersPrinters',
   DEDICATED_SPACE_1: 'dedicatedSpace1',
   DEDICATED_SPACE_2: 'dedicatedSpace2',
-  BLACK: 'black', // not a map area, telling to black out the lights on map exit for now, can refactor when needed
+  BLACK: 'black', // not a map area, telling to black out the lights on map exit for now, can refactor when needed,
+  CHASE: 'chase', // initiate chase light sequence
 }
 
 const mapAreaColorSequence = {
@@ -43,6 +44,7 @@ const mapAreaColorSequence = {
   [MapArea.DEDICATED_SPACE_1]: [0, 1, 0, 0],
   [MapArea.DEDICATED_SPACE_2]: [0, 1, 0, 0],
   [MapArea.BLACK]: [1, 1, 1, 1],
+  [MapArea.CHASE]: [1, 0, 1, 0],
 }
 
 export class KioskServer {    

@@ -23,7 +23,8 @@ export const MapArea = {
   COMPUTERS_PRINTERS: 'computersPrinters',
   DEDICATED_SPACE_1: 'dedicatedSpace1',
   DEDICATED_SPACE_2: 'dedicatedSpace2',
-  BLACK: 'black', // not really a map area, used to black out external lights for now
+  BLACK: 'black', // not really a map area, used to black out external lights for now,
+  CHASE: 'chase', // initiate chase light sequence
 }
 
 // When X area is active and Y gamepad event happens, move to area Z
@@ -180,7 +181,8 @@ export class TravelMap extends Scene {
   }
 
   cleanup() {
-    this.io.emit('mapArea', MapArea.BLACK);
+    // TODO: would be nice to break out io so that screensaver and other scenes can trigger light changes
+    this.io.emit('mapArea', MapArea.CHASE);
     this.stepController.cleanup();
     this.stepController = null;
 
