@@ -1,4 +1,4 @@
-# Pikes Peak Makerspace Welcome Display <img src= "https://media.tenor.com/images/2adfe94e69139f3e22623b61d375a7a7/tenor.gif" width= "30" height= "30">
+# Pikes Peak Makerspace Welcome Display
 
 This Raspberry Pi and Teensy/Arduino powered display welcomes Pikes Peak Makerspace visitors, showcasing a map tour of PPM and its equipment. The display is targeted towards new guests and visitors of a traveling booth. It uses an XBox game controller for navigation for added fun.
 
@@ -18,22 +18,7 @@ Thanks to all those who donated time, code, hardware, design, sound, testing and
 
 ### Contributors
 
-Ben S,
-Chris M,
-Chris S,
-Drew J,
-Greg B,
-Joey C,
-John N,
-Les F,
-Lisa M,
-Marvin H,
-Mathew P,
-Nate R,
-Pavan D,
-Ross H,
-Trevor B,
-Warren J.
+Ben S, Chris M, Chris S, Drew J, Greg B, Joey C, John N, Les F, Lisa M, Marvin H, Mathew P, Nate R, Pavan D, Ross H, Trevor B, Warren J.
 
 ## Install Raspberry Pi Desktop
 
