@@ -36,11 +36,14 @@
  */
  
 #define LED_PIN     5       // D0 (SCL/PWM/INTO)
-#define NUM_LEDS    30
+#define NUM_LEDS    60
 #define BRIGHTNESS  64
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 CRGB leds[NUM_LEDS];
+
+bool animate = false;
+int animateIndex = 0;
 
 #define UPDATES_PER_SECOND 100
 
@@ -64,8 +67,15 @@ void setup() {
 void loop()
 {
   uint8_t pfVal = 0;            // temp var for PORTF
-  
-  pfVal = (PINF & 0xf0) >> 4;   // move high nibble to low nibble
+  ChangePalettePeriodically();
+
+  if (animate == true) {
+    pfVal = animateIndex + 1;   // move high nibble to low nibble
+    // TODO: if not some color, animate false
+  } else {
+    pfVal = (PINF & 0xf0) >> 4;   // move high nibble to low nibble
+    // TODO: if some color, animate true
+  }
 
   FillLEDsFromPaletteColors(pfVal*16);  // use whatever the PORTF[7:4] 4 bit value is as our offset to set our LEDs from palette
                                         // multiply by 16 to get true colors we set in palette
@@ -81,7 +91,6 @@ void loop()
 void FillLEDsFromPaletteColors(uint8_t colorIndex)
 {
   uint8_t bness = 255;
-
   // loop for all LEDs and set its color according to colorIndex
   for (int i = 0; i < NUM_LEDS; i++) {
     leds[i] = ColorFromPalette(currentPalette, colorIndex, bness, currentBlending);
@@ -92,13 +101,15 @@ void FillLEDsFromPaletteColors(uint8_t colorIndex)
 // this function left over from example code. Might want to use at some point...
 void ChangePalettePeriodically()
 {
-  uint8_t secondHand = (millis() / 1000) % 60;
+  uint8_t secondHand = (millis() / 500) % 2;
   static uint8_t lastSecond = 99;
-  
   if (lastSecond != secondHand) {
     lastSecond = secondHand;
     if (secondHand ==  0) {
-      // do something
+      animateIndex = animateIndex + 1;
+      if (animateIndex >= 9) {
+        animateIndex = 0;
+      }
     }
   }
 }
@@ -121,7 +132,7 @@ void SetupKioskPalette()
   CRGB orange =       CRGB(0xff, 0x67, 0x00);
   CRGB white =        CRGB(0xff, 0xff, 0xff);
   CRGB black  =       CRGB::Black;
-  CRGB avail =        CRGB::Black;
+  CRGB chase =        CRGB::Black;
   
   currentPalette = CRGBPalette16(
     black,        // 0000
@@ -134,7 +145,7 @@ void SetupKioskPalette()
     metal,        // 0111
     multiUse,     // 1000  
     wood,         // 1001
-    avail,        // 1010
+    chase,        // 1010
     lightBlue,    // 1011
     blue,         // 1100
     orange,       // 1101
