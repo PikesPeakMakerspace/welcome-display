@@ -43,7 +43,7 @@
 CRGB leds[NUM_LEDS];
 
 bool animate = false;
-int animateIndex = 0;
+int animateIndex = 1;
 
 #define UPDATES_PER_SECOND 100
 
@@ -68,13 +68,16 @@ void loop()
 {
   uint8_t pfVal = 0;            // temp var for PORTF
   ChangePalettePeriodically();
-
   if (animate == true) {
-    pfVal = animateIndex + 1;   // move high nibble to low nibble
-    // TODO: if not some color, animate false
+    pfVal = animateIndex;
+    if ((PINF & 0xf0) >> 4 != 10) {
+      animate = false;
+    }
   } else {
     pfVal = (PINF & 0xf0) >> 4;   // move high nibble to low nibble
-    // TODO: if some color, animate true
+    if (pfVal == 10) {
+      animate = true;
+    }
   }
 
   FillLEDsFromPaletteColors(pfVal*16);  // use whatever the PORTF[7:4] 4 bit value is as our offset to set our LEDs from palette
@@ -108,7 +111,7 @@ void ChangePalettePeriodically()
     if (secondHand ==  0) {
       animateIndex = animateIndex + 1;
       if (animateIndex >= 9) {
-        animateIndex = 0;
+        animateIndex = 1;
       }
     }
   }
