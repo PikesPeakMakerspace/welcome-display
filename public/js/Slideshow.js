@@ -14,7 +14,7 @@ export class Slideshow {
   
   constructor(slides,
     onClose,
-    idleTimeoutMilliseconds = 60000,
+    idleTimeoutMilliseconds = 115000,
   ) {
     this.slides = slides;
     this.onClose = onClose;
@@ -44,6 +44,7 @@ export class Slideshow {
     
     // accept select/deselect buttons to exit slideshow for now
     if (action === StepAction.SELECT || action === StepAction.DISMISS) {
+      this.sound.play(Sounds.CLOSE);
       this.cleanup();
       return;
     }
@@ -99,6 +100,7 @@ export class Slideshow {
   }
 
   closeMouseClickHandler() {
+    this.sound.play(Sounds.CLOSE);
     this.cleanup();
   }
 
@@ -115,7 +117,6 @@ export class Slideshow {
   }
 
   cleanup() {
-    this.sound.play(Sounds.CLOSE);
     this.removeMouseEventListers();
     this.stepController.cleanup();
     this.stepController = null;
