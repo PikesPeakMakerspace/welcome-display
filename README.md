@@ -9,16 +9,33 @@ Vanilla JavaScript controls most of the app and server. The intention was to mak
 ## A Fun Volunteer Project
 
 Before:
+
 ![donated mall map display frame looking for volunteer time](https://github.com/PikesPeakMakerspace/welcome-display/blob/main/public/img/docs/before.jpg)
 
 After:
+
 ![welcome kiosk after contributions from several amazing people](https://github.com/PikesPeakMakerspace/welcome-display/blob/main/public/img/docs/after.jpg)
 
 Thanks to all those who donated time, code, hardware, design, sound, testing and more at PPM! This came together quickly thanks to you.
 
 ### Contributors
 
-Ben S, Chris M, Chris S, Drew J, Greg B, Joey C, John N, Les F, Lisa M, Marvin H, Mathew P, Nate R, Pavan D, Ross H, Trevor B, Warren J.
+- Ben S
+- Chris M
+- Chris S
+- Drew J
+- Greg B
+- Joey C
+- John N
+- Les F
+- Lisa M
+- Marvin H
+- Mathew P
+- Nate R
+- Pavan D
+- Ross H
+- Trevor B
+- Warren J
 
 ## Install Raspberry Pi Desktop
 
@@ -54,12 +71,12 @@ TODO
 
 Here are the tools and additional software that we're currently using:
 
-balenaEtcher
-CodePen, Raspian, BASH, ssh
-node.js, socket.io
-Geany, Chrome Developer tools
-Adobe Illustrator and Photoshop
-https://jsoneditoronline.org/
-Visual Studio Code, Arduino IDE
-git, GitHub, Git Bash, Markdown
-Trello, and especially Slack
+- balenaEtcher
+- CodePen, Raspian, BASH, ssh
+- node.js, socket.io
+- Geany, Chrome Developer tools
+- Adobe Illustrator and Photoshop
+- https://jsoneditoronline.org/
+- Visual Studio Code, Arduino IDE
+- git, GitHub, Git Bash, Markdown
+- Trello, and especially Slack
