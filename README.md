@@ -10,9 +10,10 @@ No one knows if the developer(s) will get hit by a bus. For that reason, this ap
 
 balenaEtcher <br>
 CodePen, Raspian, BASH, ssh <br>
+node.js, socket.io <br>
+Geany, Chrome Developer tools <br>
 Adobe Illustrator and Photoshop <br>
 https://jsoneditoronline.org/ <br>
-node.js, socket.io <br>
 Visual Studio Code, Arduino IDE <br>
 git, GitHub, Git Bash, Markdown <br>
 Trello, and especially Slack <br>
